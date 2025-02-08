@@ -1,10 +1,11 @@
 <div class="prayer-container">
   <h2>Instruction: {{currentPage?.instruction}}</h2>
   <h3 *ngIf="currentMystery != undefined">{{currentMystery.Title}}</h3>
-  <h4 *ngIf="currentPage.file?.Title">Title: {{currentPage?.file.Title}}</h4>
+  <h5 *ngIf="currentMystery != undefined">{{currentMystery.Meditation}}</h5>
+  <h4 *ngIf="currentPage.file?.Title">{{currentPage?.file.Title}}</h4>
   <p *ngIf="currentPage.file">{{currentPage?.file.Text}}</p>
 
-  <h5 *ngIf="currentMystery != undefined">{{currentMystery.Meditation}}</h5>
+
   <!-- Decade: {{currentPage?.decadeIndex}}
   Mystery: {{currentPage?.mysteryIndex}} -->
 </div>

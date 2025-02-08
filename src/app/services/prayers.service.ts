@@ -9,6 +9,7 @@ import HailHolyQueen from '../../assets/HailHolyQueen.json';
 import OurFather from '../../assets/OurFather.json';
 import OhMyJesus from '../../assets/OhMyJesus.json';
 import FinalPrayer from '../../assets/FinalPrayer.json';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -96,7 +97,7 @@ export class PrayersService {
   ]
   currentPrayerIndex = -1;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   getNextPage(){
     if (this.currentPrayerIndex >= this.pages.length){
@@ -108,6 +109,8 @@ export class PrayersService {
 
   getPrevPage(){
     if (this.currentPrayerIndex <= 0){
+      this.currentPrayerIndex = -1;
+      this.router.navigate(['/']);
       return undefined;
     }
     this.currentPrayerIndex--;

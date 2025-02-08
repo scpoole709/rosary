@@ -1,17 +1,21 @@
+:root{
+  --img-width: 758px;
+  --img-height: 499px;
+}
+
+
 .rosary-758-499 {
   position: relative;
-  height: 499px;
-  width: 758px;
-  background: none;
+  height: var(--img-height);
+  width: var(--img-width);
 }
 
 .rosary-img{
   position: absolute;
-  width: 758px;
-  height: 499px;
+  height: var(--img-height);
+  width: var(--img-width);
   left: 0px;
   top: 0px;
-  background-image: radial-gradient(red, yellow, green);
 }
 
 .heartland {
@@ -24,10 +28,11 @@
 
 
 body {
-  width: 758px;
-  height: 499px;
+  height: var(--img-height);
+  width: var(--img-width);
   border: solid 2px black;
 }
+
 
 .start-btn {
   background: rgb(125, 222, 125);
