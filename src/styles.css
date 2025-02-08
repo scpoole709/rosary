@@ -3,8 +3,24 @@
   --img-height: 499px;
 }
 
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  height: 100%;
+  border: solid 1px red;
+}
+
+.prayer-container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 0em;
+  background: none;
+}
 
 .rosary-758-499 {
+  transform-origin: left top;
   position: relative;
   height: var(--img-height);
   width: var(--img-width);
@@ -25,14 +41,6 @@
   left: 67px;
   top: 50px;
 }
-
-
-body {
-  height: var(--img-height);
-  width: var(--img-width);
-  border: solid 2px black;
-}
-
 
 .start-btn {
   background: rgb(125, 222, 125);
