@@ -18,14 +18,14 @@ export class PrayersService {
 
   pages: Page[] =  [
     { instruction: "Holding the Crucifix", file: Beginning},
-    { instruction: "Holding the Crucifix", file: ApostlesCreed},
+    { instruction: "Continue holding the Crucifix", file: ApostlesCreed},
     { instruction: "Hold first bead", file: OurFather},
     { instruction: "Hold second bead", file: HailMary},
     { instruction: "Hold third bead", file: HailMary},
     { instruction: "Hold fourth bead", file: HailMary},
-    { instruction: "Say Glory Be", file: GloryBe},
+    { instruction: "Hold fifth bead", file: GloryBe},
     { instruction: "Announce the Mystery", decadeIndex: 0},
-    { instruction: "Say Our Father", file: OurFather, decadeIndex: 0},
+    { instruction: "", file: OurFather},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 0, mysteryIndex: 0},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 0, mysteryIndex: 1},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 0, mysteryIndex: 2},
@@ -36,10 +36,10 @@ export class PrayersService {
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 0, mysteryIndex: 7},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 0, mysteryIndex: 8},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 0, mysteryIndex: 9},
-    { instruction: "Say Glory Be", file: GloryBe},
-    { instruction: "Say Oh My Jesus", file: OhMyJesus},
+    { instruction: "", file: GloryBe},
+    { instruction: "", file: OhMyJesus},
     { instruction: "Announce the Mystery", decadeIndex: 1},
-    { instruction: "Say Our Father", file: OurFather, decadeIndex: 1},
+    { instruction: "", file: OurFather},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 1, mysteryIndex: 0},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 1, mysteryIndex: 1},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 1, mysteryIndex: 2},
@@ -50,9 +50,9 @@ export class PrayersService {
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 1, mysteryIndex: 7},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 1, mysteryIndex: 8},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 1, mysteryIndex: 9},
-    { instruction: "Say Glory Be", file: GloryBe},
+    { instruction: "", file: GloryBe},
     { instruction: "Announce the Mystery", decadeIndex: 2},
-    { instruction: "Say Our Father", file: OurFather, decadeIndex: 2},
+    { instruction: "", file: OurFather},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 2, mysteryIndex: 0},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 2, mysteryIndex: 1},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 2, mysteryIndex: 2},
@@ -63,10 +63,10 @@ export class PrayersService {
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 2, mysteryIndex: 7},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 2, mysteryIndex: 8},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 2, mysteryIndex: 9},
-    { instruction: "Say Glory Be", file: GloryBe},
-    { instruction: "Say Oh My Jesus", file: OhMyJesus},
+    { instruction: "", file: GloryBe},
+    { instruction: "", file: OhMyJesus},
     { instruction: "Announce the Mystery", decadeIndex: 3},
-    { instruction: "Say Our Father", file: OurFather, decadeIndex: 3},
+    { instruction: "", file: OurFather},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 3, mysteryIndex: 0},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 3, mysteryIndex: 1},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 3, mysteryIndex: 2},
@@ -77,9 +77,9 @@ export class PrayersService {
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 3, mysteryIndex: 7},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 3, mysteryIndex: 8},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 3, mysteryIndex: 9},
-    { instruction: "Say Glory Be", file: GloryBe},
+    { instruction: "", file: GloryBe},
     { instruction: "Announce the Mystery", decadeIndex: 4},
-    { instruction: "Say Our Father", file: OurFather, decadeIndex: 4},
+    { instruction: "", file: OurFather, decadeIndex: 4},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 4, mysteryIndex: 0},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 4, mysteryIndex: 1},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 4, mysteryIndex: 2},
@@ -90,9 +90,9 @@ export class PrayersService {
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 4, mysteryIndex: 7},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 4, mysteryIndex: 8},
     { instruction: "Meditate on mystery", file: HailMary, decadeIndex: 4, mysteryIndex: 9},
-    { instruction: "Say Glory Be", file: GloryBe},
-    { instruction: "Say Hail Holy Queen", file: HailHolyQueen},
-    { instruction: "Say Final Prayer", file: FinalPrayer},
+    { instruction: "", file: GloryBe},
+    { instruction: "", file: HailHolyQueen},
+    { instruction: "Final Prayer", file: FinalPrayer},
     { instruction: "Make the sign of the cross"}
   ]
   currentPrayerIndex = -1;
@@ -129,13 +129,13 @@ export class PrayersService {
     if (test && test.decadeIndex !== undefined) {
       const mystery = Mysteries.Mysteries[test.decadeIndex];
       if (mystery.Meditation && test.mysteryIndex != undefined){
-        return { Title: mystery.Title,
+        return { Title: test.mysteryIndex >= 0 ? "" : mystery.Title,
                  SubTitle: mystery.SubTitle,
                  Meditation: mystery.Meditation[test.mysteryIndex]
                };
       } else {
         return { Title: mystery.Title,
-                  SubTitle: mystery.SubTitle,
+                 SubTitle: mystery.SubTitle,
                 };
       }
     }
