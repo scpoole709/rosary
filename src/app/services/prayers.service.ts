@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Page } from '../utilities/page';
 import Beginning from '../../assets/Beginning.json';
 import Mysteries from '../../assets/Mysteries.json';
@@ -15,6 +15,9 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class PrayersService {
+
+  currentPage = signal(null);
+  currentMystery = signal(null);
 
   pages: Page[] =  [
     { instruction: "Holding the Crucifix", file: Beginning},
@@ -140,5 +143,28 @@ export class PrayersService {
       }
     }
     return undefined;
+  }
+
+   previous(){
+    let test = this.getPrevPage();
+    if (test) {
+      this.currentPage.set(test);
+    }
+    this.currentMystery.set(this.getCurrentMystery());
+  }
+
+  next(){
+    let test = this.getNextPage();
+    if (test) {
+      this.currentPage.set(test);
+    }
+    this.currentMystery.set(this.getCurrentMystery());
+  }
+
+  get showPrevious(){
+    return this.currentPrayerIndex >= 0;
+  }
+  get showNext(){
+    return this.currentPrayerIndex >= 0;
   }
 }

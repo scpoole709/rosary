@@ -1,7 +1,19 @@
-<div id='radiant-div' class="rosary-758-499" [style.scale]="scale">
-  <img class="rosary-img" src="/assets/Rosary-758-499-removebg-preview.png">
-  <div class="heartland">
-    <router-outlet />
+<div class="body-container">
+  <div *ngIf="orientation === 'horizontal'" id='radiant-div-h' class="rosary-horizontal">
+    <img class="rosary-img-h" src="/assets/Rosary-758-499-removebg-preview.png">
+    <div class="heartland-h">
+      <router-outlet />
+    </div>
   </div>
-</div>
 
+  <div *ngIf="orientation === 'vertical'" id='radiant-div-v' class="rosary-vertical">
+    <img class="rosary-img-v" src="/assets/rosary-vertical.png">
+    <div class="heartland-v">
+      <router-outlet />
+    </div>
+  </div>
+
+  <button [class]="orientation === 'horizontal' ? 'prev-btn-h' : 'prev-btn-v'" *ngIf="prayerService.showPrevious" (click)="prayerService.previous()">Previous</button>
+
+  <button [class]="orientation === 'horizontal' ? 'next-btn-h' : 'next-btn-v'" *ngIf="prayerService.showNext" (click)="prayerService.next()">Next</button>
+</div>

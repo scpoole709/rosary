@@ -1,44 +1,82 @@
 :root{
-  --img-width: 758px;
-  --img-height: 499px;
+  --img-width: 100%;
+  --img-height: 100%;
+  --img-vertical-height: 80%;
+  --img-vertical-width: 80%;
+  --inner-horizontal-width: 619px;
+  --inner-horizontal-height: 244px;
+  --inner-vertical-width: 400px;
+  --inner-vertical-height: 619px;
+  --button-bottom: 10px;
+  --prev-button-left: 20px;
+  --next-button-right: 20px;
 }
 
 html,
 body {
-  box-sizing: border-box;
+
   margin: 0;
-  height: 100%;
-  border: solid 1px red;
 }
 
+.body-container{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+}
 .prayer-container {
   width: 100%;
   height: 100%;
   text-align: center;
   padding-top: 0em;
   background: none;
+  border: solid 3px black;
 }
 
-.rosary-758-499 {
-  transform-origin: left top;
-  position: relative;
-  height: var(--img-height);
-  width: var(--img-width);
-}
-
-.rosary-img{
+.rosary-horizontal {
   position: absolute;
-  height: var(--img-height);
-  width: var(--img-width);
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+}
+
+.rosary-vertical {
+    position: absolute;
+      left: 0px;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+}
+
+.rosary-img-h{
+  height: 100%;
+  width: 100%;
+  border: solid 3px red;
+}
+
+.rosary-img-v {
+  position: absolute;
+  height: var(--img-vertical-height);
+  width: var(--img-virtical-width);
   left: 0px;
   top: 0px;
 }
 
-.heartland {
+.heartland-h {
   position: absolute;
-  width: 619px;
-  height: 244px;
-  left: 67px;
+  right: 5%;
+  bottom: 30%;
+  left: 5%;
+  top: 5%;
+}
+
+.heartland-v {
+  position: absolute;
+  width: var(--inner-vertical-width);
+  height: var(--inner-vertical-height);
+  left: 50px;
   top: 50px;
 }
 
@@ -56,10 +94,10 @@ body {
   border-radius: 10px;
 }
 
-.prev-btn {
+.prev-btn-h {
   position: absolute;
-  top: 300px;
-  left: -50px;
+  bottom: var(--button-bottom);
+  left: var(--prev-button-left);
   background: rgb(125, 222, 125);
   border: solid 2px rgb(144, 233, 144);
   border-radius: 10px;
@@ -68,14 +106,38 @@ body {
   font-size: 14pt;
 }
 
-.next-btn {
+.next-btn-h {
   position: absolute;
-  top: 300px;
-  left: 575px;
+  bottom: var(--button-bottom);
+  right: var(--next-button-right);
   background: rgb(125, 222, 125);
   border: solid 2px rgb(144, 233, 144);
   border-radius: 10px;
   width: 5em;
   height: 2em;
   font-size: 14pt;
+}
+
+.prev-btn-v {
+  position: absolute;
+  top: 600px;
+  left: 0px;
+  background: rgb(125, 222, 125);
+  border: solid 2px rgb(144, 233, 144);
+  border-radius: 10px;
+  width: 5em;
+  height: 2em;
+  font-size: 11pt;
+}
+
+.next-btn-v {
+  position: absolute;
+  top: 600px;
+  left: 340px;
+  background: rgb(125, 222, 125);
+  border: solid 2px rgb(144, 233, 144);
+  border-radius: 10px;
+  width: 5em;
+  height: 2em;
+  font-size: 11pt;
 }

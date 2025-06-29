@@ -1,14 +1,15 @@
 <div class="prayer-container">
-  <h3>{{currentPage?.instruction}}</h3>
+  <h3 *ngIf="currentMystery == undefined">{{currentPage?.instruction}}</h3>
   <h3 *ngIf="currentMystery != undefined">{{currentMystery.Title}}</h3>
   <h5 *ngIf="currentMystery != undefined">{{currentMystery.Meditation}}</h5>
-  <h4 *ngIf="currentPage.file?.Title">{{currentPage?.file.Title}}</h4>
-  <p *ngIf="currentPage.file">{{currentPage?.file.Text}}</p>
+  <h4 *ngIf="currentPage?.file?.Title">{{currentPage?.file.Title}}</h4>
+  <p *ngIf="currentPage?.file">{{currentPage?.file.Text}}</p>
 
 
   <!-- Decade: {{currentPage?.decadeIndex}}
   Mystery: {{currentPage?.mysteryIndex}} -->
 </div>
-<button class="prev-btn" (click)="previous($event)">Previous</button>
+<!--
+<button [class]="orientation === 'horizontal' ? 'prev-btn-h' : 'prev-btn-v'" (click)="previous($event)">Previous</button>
 
-<button class="next-btn" (click)="next($event)">Next</button>
+<button [class]="orientation === 'horizontal' ? 'next-btn-h' : 'next-btn-v'" (click)="next($event)">Next</button> -->
