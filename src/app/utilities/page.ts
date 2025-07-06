@@ -1,5 +1,5 @@
 export interface Page {
-  instruction: string;
+  instruction?: string;
   file?: any;
   decadeIndex?: number;
   mysteryIndex?: number;
