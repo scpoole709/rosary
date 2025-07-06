@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { PrayersService } from '../services/prayers.service';
 import { Page } from '../utilities/page';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-prayer-window',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './prayer-window.component.html',
   styleUrl: './prayer-window.component.css'
 })

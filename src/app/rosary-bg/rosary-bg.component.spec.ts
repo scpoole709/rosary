@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ApostlesCreedComponent } from './apostles-creed.component';
+import { RosaryBgComponent } from './rosary-bg.component';
 
-describe('ApostlesCreedComponent', () => {
-  let component: ApostlesCreedComponent;
-  let fixture: ComponentFixture<ApostlesCreedComponent>;
+describe('RosaryBgComponent', () => {
+  let component: RosaryBgComponent;
+  let fixture: ComponentFixture<RosaryBgComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ApostlesCreedComponent]
+      imports: [RosaryBgComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ApostlesCreedComponent);
+    fixture = TestBed.createComponent(RosaryBgComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
