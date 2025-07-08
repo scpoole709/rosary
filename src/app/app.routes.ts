@@ -4,5 +4,6 @@ import { PrayerWindowComponent } from './prayer-window/prayer-window.component';
 
 export const routes: Routes = [
   {path: "", component: HomeComponent},
+  {path: "home", component: HomeComponent},
   {path: "start-prayer", component: PrayerWindowComponent}
 ];
