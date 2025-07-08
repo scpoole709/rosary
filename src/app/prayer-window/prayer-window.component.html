@@ -1,4 +1,4 @@
-<i class="fa-solid fa-house"></i>
+
 <div class="prayer-container">
   <div>
   <h3>{{currentPage?.instruction}}</h3>
@@ -21,5 +21,5 @@
 </div>
 
 <button class="prev-btn" (click)="previous($event)">Previous</button>
-
+<a [routerLink]="['/']" routerLinkActive="router-link-active"><i class="fa-solid fa-house home-btn"></i></a>
 <button class="next-btn" (click)="next($event)">Next</button>
