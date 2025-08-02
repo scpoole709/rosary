@@ -101,11 +101,15 @@ export class PrayersService {
 
   constructor(private router: Router) { }
 
+  doReset(){
+    this.router.navigate(['/']);
+    this.currentPrayerIndex = 0;
+    this.reset = false;
+  }
+
   getNextPage(){
     if (this.reset){
-      this.router.navigate(['/']);
-      this.currentPrayerIndex = 0;
-      this.reset = false;
+      this.doReset();
     }
     else {
       this.currentPrayerIndex++;

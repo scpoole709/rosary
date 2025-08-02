@@ -54,7 +54,8 @@ body {
   border-radius: 10px;
   width: 9em;
   height: 2em;
-  font-size: 16pt;
+  font-size: 14pt;
+  margin: 5px auto;
 }
 
 .start-btn:hover {
