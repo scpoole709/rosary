@@ -18,7 +18,7 @@ export class PrayersService {
 
   pages: Page[] =  [
     { instruction: "Holding the Crucifix", file: Beginning},
-    { instruction: "Continue holding the Crucifix", file: ApostlesCreed},
+    { instruction: "", file: ApostlesCreed},
     { instruction: "Hold first bead and Say", file: OurFather},
     { instruction: "Hold second bead and Say", file: HailMary},
     { instruction: "Hold third bead", file: HailMary},
@@ -79,7 +79,7 @@ export class PrayersService {
     { file: HailMary, decadeIndex: 3, mysteryIndex: 9},
     { instruction: "", file: GloryBe},
     { instruction: "Announce the Mystery", decadeIndex: 4},
-    { instruction: "", file: OurFather, decadeIndex: 4},
+    { instruction: "", file: OurFather },
     { file: HailMary, decadeIndex: 4, mysteryIndex: 0},
     { file: HailMary, decadeIndex: 4, mysteryIndex: 1},
     { file: HailMary, decadeIndex: 4, mysteryIndex: 2},
@@ -95,25 +95,26 @@ export class PrayersService {
     { instruction: "Final Prayer", file: FinalPrayer},
     { instruction: "Make the sign of the cross"}
   ]
-  currentPrayerIndex = -1;
+  currentPrayerIndex = 0;
 
   constructor(private router: Router) { }
 
   getNextPage(){
-    if (this.currentPrayerIndex >= this.pages.length){
-      return undefined;
-    }
     this.currentPrayerIndex++;
+    if (this.currentPrayerIndex >= this.pages.length){
+      this.currentPrayerIndex = 0;
+    }
+
     return this.pages[this.currentPrayerIndex];
   }
 
   getPrevPage(){
+     this.currentPrayerIndex--;
     if (this.currentPrayerIndex <= 0){
-      this.currentPrayerIndex = -1;
+      this.currentPrayerIndex = 0;
       this.router.navigate(['/']);
       return undefined;
     }
-    this.currentPrayerIndex--;
     return this.pages[this.currentPrayerIndex];
   }
 

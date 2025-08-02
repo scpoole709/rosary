@@ -14,7 +14,7 @@ body {
 .prayer-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -22,6 +22,7 @@ body {
   padding-top: 0em;
   background: none;
   margin: auto;
+  font-size: 14pt;
 }
 
 .rosary-758-499 {
@@ -61,6 +62,11 @@ body {
   border-radius: 10px;
 }
 
+.hover-btn:hover {
+  border: solid 4px rgb(139, 97, 235);
+  border-radius: 10px;
+}
+
 .prev-btn {
   position: absolute;
   top: 300px;
@@ -89,7 +95,9 @@ body {
   position: absolute;
   top: 307px;
   left: 524px;
-  width: 5em;
-  height: 2em;
+  width: fit-content;
+  height: fit-content;
   font-size: 14pt;
+  border: solid 4px rgba(0,0,0,0);
+  border-radius: 10px;
 }

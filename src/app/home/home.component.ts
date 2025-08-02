@@ -9,7 +9,11 @@ import { Router } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  static timesVisited = 0;
+  get showResume(){
+    return HomeComponent.timesVisited > 1;
+  }
   constructor( public router: Router){
-
+    HomeComponent.timesVisited++;
   }
 }

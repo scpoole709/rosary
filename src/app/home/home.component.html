@@ -4,6 +4,6 @@
     Press Start when ever you are ready.
     Just follow the prompts and you'll be fine.
     If you do not have a rosary just imagine if you did.</p>
-  <button class="start-btn" (click)="router.navigate(['start-prayer'])">Start</button>
+  <button class="start-btn" (click)="router.navigate(['start-prayer'])">{{showResume ? "Resume" : "Start"}}</button>
 </div>
 

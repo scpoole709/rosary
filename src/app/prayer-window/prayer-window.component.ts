@@ -19,10 +19,13 @@ export class PrayerWindowComponent implements OnInit {
   constructor( private prayerService: PrayersService){}
 
   ngOnInit(): void {
-    this.currentPage = this.prayerService.getNextPage();
+    this.currentPage = this.prayerService.getCurrentPage();
+    this.currentMystery = this.prayerService.getCurrentMystery();
+    this.updateState();
   }
 
   previous(ev: MouseEvent){
+    this.updateState();
     let test = this.prayerService.getPrevPage();
     if (test) {
       this.currentPage = test;
@@ -31,10 +34,19 @@ export class PrayerWindowComponent implements OnInit {
   }
 
   next(ev: MouseEvent){
+    this.updateState();
     let test = this.prayerService.getNextPage();
     if (test) {
       this.currentPage = test;
     }
     this.currentMystery = this.prayerService.getCurrentMystery();
+  }
+
+  updateState(){
+    const list = document.getElementsByClassName("slow-fade");
+    Array.from(list).forEach( (e: HTMLElement) => {
+      e.style.opacity = "1";
+      e.classList.toggle('slow-fade');
+    });
   }
 }
