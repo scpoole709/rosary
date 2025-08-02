@@ -22,4 +22,4 @@
 
 <button class="prev-btn hover-btn" (click)="previous($event)">Previous</button>
 <a [routerLink]="['/']" routerLinkActive="router-link-active"><i class="fa-solid fa-house home-btn hover-btn"></i></a>
-<button class="next-btn hover-btn" (click)="next($event)">Next</button>
+<button class="next-btn hover-btn" (click)="next($event)">{{reset ? 'Start' : 'Next'}}</button>

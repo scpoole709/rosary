@@ -16,6 +16,10 @@ export class PrayerWindowComponent implements OnInit {
   currentPage: Page | undefined;
   currentMystery: any | undefined;
 
+  get reset(){
+    return this.prayerService.reset;
+  }
+
   constructor( private prayerService: PrayersService){}
 
   ngOnInit(): void {

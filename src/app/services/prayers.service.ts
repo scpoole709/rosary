@@ -10,6 +10,7 @@ import OurFather from '../../assets/OurFather.json';
 import OhMyJesus from '../../assets/OhMyJesus.json';
 import FinalPrayer from '../../assets/FinalPrayer.json';
 import { Router } from '@angular/router';
+import { HomeComponent } from '../home/home.component';
 
 @Injectable({
   providedIn: 'root'
@@ -92,17 +93,27 @@ export class PrayersService {
     { file: HailMary, decadeIndex: 4, mysteryIndex: 9},
     { instruction: "", file: GloryBe},
     { instruction: "", file: HailHolyQueen},
-    { instruction: "Final Prayer", file: FinalPrayer},
+    { instruction: "", file: FinalPrayer},
     { instruction: "Make the sign of the cross"}
   ]
   currentPrayerIndex = 0;
+  reset = false;
 
   constructor(private router: Router) { }
 
   getNextPage(){
-    this.currentPrayerIndex++;
-    if (this.currentPrayerIndex >= this.pages.length){
+    if (this.reset){
+      this.router.navigate(['/']);
       this.currentPrayerIndex = 0;
+      this.reset = false;
+    }
+    else {
+      this.currentPrayerIndex++;
+      if (this.currentPrayerIndex >= this.pages.length){
+        this.currentPrayerIndex = this.pages.length -1;
+        HomeComponent.timesVisited = 0;
+        this.reset = true;
+      }
     }
 
     return this.pages[this.currentPrayerIndex];
