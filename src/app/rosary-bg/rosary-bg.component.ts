@@ -1,12 +1,12 @@
 import { PrayersService } from './../services/prayers.service';
 import { Component, HostListener, OnInit, AfterViewInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { RosaryBgService } from './rosary-bg.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'rosary-bg',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './rosary-bg.component.html',
   styleUrl: './rosary-bg.component.scss'
 })
@@ -17,6 +17,7 @@ export class RosaryBgComponent implements OnInit, AfterViewInit {
   @ViewChild("contentDiv") contentDiv;
   @ViewChild("prevbtn") prevBtn;
   @ViewChild("nextbtn") nextBtn;
+  @ViewChild("homebtn") homeBtn;
 
   @Output() nav = new EventEmitter<string>();
 
@@ -47,6 +48,9 @@ export class RosaryBgComponent implements OnInit, AfterViewInit {
           this.nextBtn.nativeElement.style.bottom = this.content.style.bottom;
           this.prevBtn.nativeElement.style.left = space.minX + "px";
           this.nextBtn.nativeElement.style.right = this.canvas.width - space.maxX + "px";
+
+          this.homeBtn.nativeElement.style.top = space.topY / 2 + "px";
+          this.homeBtn.nativeElement.style.right = this.canvas.width - space.maxX + "px";
         }
         else if (next.update === "rebuild") {
           //this.rbSvc.build(this.canvas);
@@ -70,6 +74,9 @@ export class RosaryBgComponent implements OnInit, AfterViewInit {
     this.rbSvc.redraw(this.canvas);
   }
 
+  @HostListener('window:dblclick', ['$event'])
+    onDblClick(event: Event): void {
+  }
   saveEvent;
   lastType = "none";
   click(event: MouseEvent, menu){
@@ -89,24 +96,24 @@ export class RosaryBgComponent implements OnInit, AfterViewInit {
 
   dblclick(event: MouseEvent, menu){
 
-    const selected = this.rbSvc.getClicked(event);
-    if (!!selected){
-      if (selected.gtype === "cross"){
-        this.rbSvc.unselectAll();
-        this.router.navigate(["/"]);
-         this.rbSvc.redraw(this.canvas);
-      }
-      else {
-        this.rbSvc.unselectAll();
-        selected.selected = true;
-        this.rbSvc.redraw(this.canvas);
-        return;
-      }
-    }
-    else {
-      // this.rbSvc.unselectAll();
-      this.rbSvc.redraw(this.canvas);
-    }
+    // const selected = this.rbSvc.getClicked(event);
+    // if (!!selected){
+    //   if (selected.gtype === "cross"){
+    //     this.rbSvc.unselectAll();
+    //     this.router.navigate(["/"]);
+    //      this.rbSvc.redraw(this.canvas);
+    //   }
+    //   else {
+    //     this.rbSvc.unselectAll();
+    //     selected.selected = true;
+    //     this.rbSvc.redraw(this.canvas);
+    //     return;
+    //   }
+    // }
+    // else {
+    //   // this.rbSvc.unselectAll();
+    //   this.rbSvc.redraw(this.canvas);
+    // }
   }
 
   next(ev: MouseEvent){

@@ -1,12 +1,13 @@
 
 <div class="prayer-container" [style.font-size]="fontSize">
   <!-- <div style="margin: auto;"> -->
+
     <!-- <span style="font-size: 12px;">Width: {{width}} Height: {{height}} Area: {{area}}</span> -->
     @if (currentPage?.instruction) {
       <h3>{{currentPage?.instruction}}</h3>
     }
-    @if (currentMystery != undefined) {
-      <h3>{{currentMystery.Title}}</h3>
+    @if (currentMystery?.Title) {
+      <h3>{{currentMystery?.Title}}</h3>
     }
     @if (currentMystery?.Meditation != undefined) {
       <h3 [innerHTML]="'Meditate: ' + currentMystery.Meditation">Meditate:</h3>
@@ -24,5 +25,5 @@
 <!-- </div> -->
 
 <!-- <button class="prev-btn hover-btn" (click)="previous($event)">Previous</button> -->
-<!-- <a [routerLink]="['/']" routerLinkActive="router-link-active"><i class="fa-solid fa-house home-btn hover-btn"></i></a> -->
+
 <!-- <button class="next-btn hover-btn" (click)="next($event)">{{reset ? 'Start' : 'Next'}}</button> -->

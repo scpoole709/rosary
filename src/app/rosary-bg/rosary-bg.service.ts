@@ -441,6 +441,7 @@ export class RosaryBgService {
       minX, topY, maxX, maxY
     }
   }
+  
   getItem( item: string){
      return this.eventArray.find(e => e.gtype === item);
   }

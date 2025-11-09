@@ -39,13 +39,13 @@ body {
   border: solid 2px rgb(144, 233, 144);
   border-radius: 10px;
   width: 9em;
-  height: 1.5em;
+  height: 2em;
   font-size: 12pt;
   margin: 0px auto;
 }
 
 .start-btn:hover {
-  border: solid 4px rgb(139, 97, 235);
+  border: solid 4px rgb(144, 233, 144);
   border-radius: 10px;
 }
 
@@ -78,13 +78,13 @@ body {
   font-size: 14pt;
 }
 
-.home-btn {
+/* .home-btn {
   position: absolute;
-  top: 307px;
-  left: 524px;
+  top: -30px;
+  right: 100px;
   width: fit-content;
   height: fit-content;
   font-size: 14pt;
   border: solid 4px rgba(0,0,0,0);
-  border-radius: 10px;
-}
+  border-radius: 10px; */
+

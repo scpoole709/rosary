@@ -1,9 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PrayersService } from '../services/prayers.service';
 import { Page } from '../utilities/page';
-import { RouterLink } from '@angular/router';
 import { RosaryBgService } from '../rosary-bg/rosary-bg.service';
-
 
 @Component({
   selector: 'app-prayer-window',
@@ -76,6 +74,7 @@ export class PrayerWindowComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.prayerService.startFromBeginning();
     this.currentPage = this.prayerService.getCurrentPage();
     this.currentMystery = this.prayerService.getCurrentMystery();
     this.rgbService.showButtons = true;

@@ -64,3 +64,17 @@
 }.border-r {
   border: solid 3px red;
 }
+
+.home-btn {
+   position: absolute;
+  text-align: right;
+  font-size: 24px;
+  border: solid 4px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
+
+.home-btn:hover {
+  padding: 4px;
+  border: solid 4px rgba(0, 0, 0, 1);
+  border-radius: 10px;
+}

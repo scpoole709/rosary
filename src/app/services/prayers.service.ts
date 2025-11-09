@@ -117,6 +117,11 @@ export class PrayersService {
     this.reset = false;
   }
 
+  startFromBeginning(){
+    this.currentPrayerIndex = 0;
+    this.reset = false;
+  }
+
   getPageByKey(key: string){
     const page = this.pages.find( p => p.key === key);
     this.currentPrayerIndex = this.pages.indexOf(page);
