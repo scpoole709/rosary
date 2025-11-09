@@ -1,12 +1,15 @@
 
-<div class="prayer-container">
-  <div style="margin: auto;">
-    <h3>{{currentPage?.instruction}}</h3>
+<div class="prayer-container" [style.font-size]="fontSize">
+  <!-- <div style="margin: auto;"> -->
+    <span style="font-size: 12px;">Width: {{width}} Height: {{height}} Area: {{area}}</span>
+    @if (currentPage?.instruction) {
+      <h3>{{currentPage?.instruction}}</h3>
+    }
     @if (currentMystery != undefined) {
       <h3>{{currentMystery.Title}}</h3>
     }
     @if (currentMystery?.Meditation != undefined) {
-      <h4  [innerHTML]="'Meditate: ' + currentMystery.Meditation">Meditate:</h4>
+      <h3 [innerHTML]="'Meditate: ' + currentMystery.Meditation">Meditate:</h3>
     }
     @if (currentPage.file?.Title) {
       <h4>{{currentPage?.file.Title}}</h4>
@@ -15,11 +18,11 @@
       <p [innerHTML]="currentPage?.file.Text"></p>
     }
 
-  </div>
+</div>
   <!-- Decade: {{currentPage?.decadeIndex}}
   Mystery: {{currentPage?.mysteryIndex}} -->
-</div>
+<!-- </div> -->
 
-<button class="prev-btn hover-btn" (click)="previous($event)">Previous</button>
-<a [routerLink]="['/']" routerLinkActive="router-link-active"><i class="fa-solid fa-house home-btn hover-btn"></i></a>
-<button class="next-btn hover-btn" (click)="next($event)">{{reset ? 'Start' : 'Next'}}</button>
+<!-- <button class="prev-btn hover-btn" (click)="previous($event)">Previous</button> -->
+<!-- <a [routerLink]="['/']" routerLinkActive="router-link-active"><i class="fa-solid fa-house home-btn hover-btn"></i></a> -->
+<!-- <button class="next-btn hover-btn" (click)="next($event)">{{reset ? 'Start' : 'Next'}}</button> -->

@@ -3,8 +3,11 @@
   <p>Take a deep breath and prepare for your journey.
     Press Start when ever you are ready.
     Just follow the prompts and you'll be fine.
-    If you do not have a rosary just imagine if you did.</p>
-  <button class="start-btn" (click)="router.navigate(['start-prayer'])">{{showResume ? "Resume" : "Start"}}</button>
-  <button *ngIf="showResume" class="start-btn" (click)="doReset()">Reset</button>
+    If you do not have a rosary just imagine if you did.
+  </p>
+  <div style="display: flex;">
+    <button class="start-btn" (click)="router.navigate(['start-prayer'])">{{showResume ? "Resume" : "Start"}}</button>
+    <button *ngIf="showResume" class="start-btn" (click)="doReset()">Reset</button>
+  </div>
 </div>
 

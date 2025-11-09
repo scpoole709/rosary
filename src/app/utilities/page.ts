@@ -3,6 +3,7 @@ export interface Page {
   file?: any;
   decadeIndex?: number;
   mysteryIndex?: number;
+  key: string;
 }
 
 export interface PrayerFile{
