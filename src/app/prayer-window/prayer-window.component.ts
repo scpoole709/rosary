@@ -33,11 +33,14 @@ export class PrayerWindowComponent implements OnInit, OnDestroy {
    if (this.area > 400000){
     return "26px";
   }
-  if (this.area >300000){
+  if (this.area > 300000){
     return "24px";
   }
-  if (this.area >200000){
-    return "20px";
+  if (this.area > 200000){
+    return "18px";
+  }
+  if (this.area > 100000){
+    return "11px";
   }
   return this._fontSize;
  }
