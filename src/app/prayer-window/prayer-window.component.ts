@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { PrayersService } from '../services/prayers.service';
 import { Page } from '../utilities/page';
 import { RosaryBgService } from '../rosary-bg/rosary-bg.service';
@@ -12,36 +12,28 @@ import { RosaryBgService } from '../rosary-bg/rosary-bg.service';
 })
 export class PrayerWindowComponent implements OnInit, OnDestroy {
 
+  @ViewChild('prayerContainer') container
+
   currentPage: Page | undefined;
   currentMystery: any | undefined;
 
   area = 0;
   _fontSize = "20px";
- get fontSize() {
-  this.area = window.innerHeight * window.innerWidth;
-  if (this.area >  1500000){
-    return "50px";
-  }
-  if (this.area > 600000){
-    return "32px";
-  }
-  if (this.area >500000){
-    return "30px";
-  }
-   if (this.area > 400000){
-    return "26px";
-  }
-  if (this.area > 300000){
-    return "24px";
-  }
-  if (this.area > 200000){
-    return "18px";
-  }
-  if (this.area > 100000){
+  get fontSize() {
+    // this.area = window.innerHeight * window.innerWidth;
+
+    if (!this.container)return "20px";
+    let rect = this.container.nativeElement.getBoundingClientRect();
+    this.area = Math.floor(rect.width * rect.height);
+    let fontcount = 50;
+    for ( let i = 1000000; i >= 0; i -= 50000) {
+      if (this.area > i){
+        return Math.round(fontcount) + "px";
+      }
+      fontcount -= 1.75;
+    }
     return "11px";
   }
-  return this._fontSize;
- }
 
   get reset(){
     return this.prayerService.reset;

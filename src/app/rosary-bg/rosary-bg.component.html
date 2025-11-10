@@ -6,7 +6,9 @@
     <div #contentDiv class="content"><ng-content></ng-content></div>
     <button #prevbtn (click)="prev($event)" [hidden]="!rbSvc.showButtons">&#8656;</button>
     <button #nextbtn (click)="next($event)" [hidden]="!rbSvc.showButtons">&#8658;</button>
-    <a #homebtn class="home-btn" [routerLink]="['/']" routerLinkActive="router-link-active"><i class="fa-solid fa-house"></i></a>
+    <a #homebtn class="home-btn" [routerLink]="['/']" routerLinkActive="router-link-active" [hidden]="!rbSvc.showButtons">
+      <i class="fa-solid fa-house"></i>
+    </a>
   </div>
 
 </div>
