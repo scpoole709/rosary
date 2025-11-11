@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { PrayersService } from '../services/prayers.service';
 import { Page } from '../utilities/page';
-import { RosaryBgService } from '../rosary-bg/rosary-bg.service';
+import { ContentUpdate, RosaryBgService } from '../rosary-bg/rosary-bg.service';
 
 @Component({
   selector: 'app-prayer-window',
@@ -17,26 +17,10 @@ export class PrayerWindowComponent implements OnInit, OnDestroy {
   currentPage: Page | undefined;
   currentMystery: any | undefined;
 
-  area = 0;
-  _fontSize = "20px";
-  get fontSize() {
-    // this.area = window.innerHeight * window.innerWidth;
-
-    if (!this.container)return "20px";
-    let rect = this.container.nativeElement.getBoundingClientRect();
-    this.area = Math.floor(rect.width * rect.height);
-    let fontcount = 50;
-    for ( let i = 1000000; i >= 0; i -= 50000) {
-      if (this.area > i){
-        return Math.round(fontcount) + "px";
-      }
-      fontcount -= 1.75;
-    }
-    return "11px";
-  }
+  fontSize = "11px";
 
   get reset(){
-    return this.prayerService.reset;
+    return this.prayerSvc.reset;
   }
 
   get height(){
@@ -46,10 +30,22 @@ export class PrayerWindowComponent implements OnInit, OnDestroy {
     return window.outerWidth;
   }
 
+  determineFontSize(space: ContentUpdate){
+    const area = Math.floor((space.contentInfo.maxX - space.contentInfo.minX) * (space.contentInfo.maxY - space.contentInfo.topY));
+    let fontcount = 50;
+    for ( let i = 1000000; i >= 0; i -= 50000) {
+      if (area > i){
+        return Math.round(fontcount) + "px";
+      }
+      fontcount -= 1.81;
+    }
+    return "11px";
+  }
+
   subscribers = [];
-  constructor( private prayerService: PrayersService,
-               private rgbService: RosaryBgService){
-    this.subscribers.push(prayerService.nav.subscribe( txt => {
+  constructor( private prayerSvc: PrayersService,
+               private rbgSvc: RosaryBgService){
+    this.subscribers.push(prayerSvc.nav.subscribe( txt => {
       switch(txt){
         case 'next':
           this.next();
@@ -58,19 +54,31 @@ export class PrayerWindowComponent implements OnInit, OnDestroy {
           this.previous();
           break;
         default:
-          this.currentPage = this.prayerService.getPageByKey(txt);
-          this.currentMystery = this.prayerService.getCurrentMystery();
+          this.currentPage = this.prayerSvc.getPageByKey(txt);
+          this.currentMystery = this.prayerSvc.getCurrentMystery();
           break;
       }
     }));
+
+     this.rbgSvc.contentSpace.subscribe({
+      next: (next: any) => {
+        if (next.update === "resize"){
+          this.fontSize = this.determineFontSize(next);
+        }
+        else if (next.update === "rebuild") {
+        }
+        else if (next.update === "redraw") {
+        }
+      }
+    })
   }
 
   ngOnInit(): void {
-    this.prayerService.startFromBeginning();
-    this.currentPage = this.prayerService.getCurrentPage();
-    this.currentMystery = this.prayerService.getCurrentMystery();
-    this.rgbService.showButtons = true;
-    this.rgbService.selectItem("cross");
+    this.prayerSvc.startFromBeginning();
+    this.currentPage = this.prayerSvc.getCurrentPage();
+    this.currentMystery = this.prayerSvc.getCurrentMystery();
+    this.rbgSvc.showButtons = true;
+    this.rbgSvc.selectItem("cross");
     this.updateState();
   }
 
@@ -82,22 +90,22 @@ export class PrayerWindowComponent implements OnInit, OnDestroy {
 
   previous(){
     this.updateState();
-    let test = this.prayerService.getPrevPage();
+    let test = this.prayerSvc.getPrevPage();
     if (test) {
       this.currentPage = test;
     }
-    this.currentMystery = this.prayerService.getCurrentMystery();
-    this.rgbService.selectItem(this.currentPage.key);
+    this.currentMystery = this.prayerSvc.getCurrentMystery();
+    this.rbgSvc.selectItem(this.currentPage.key);
   }
 
   next(){
     this.updateState();
-    let test = this.prayerService.getNextPage();
+    let test = this.prayerSvc.getNextPage();
     if (test) {
       this.currentPage = test;
     }
-    this.currentMystery = this.prayerService.getCurrentMystery();
-    this.rgbService.selectItem(this.currentPage.key);
+    this.currentMystery = this.prayerSvc.getCurrentMystery();
+    this.rbgSvc.selectItem(this.currentPage.key);
   }
 
   updateState(){

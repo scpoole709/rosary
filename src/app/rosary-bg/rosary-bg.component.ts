@@ -49,7 +49,7 @@ export class RosaryBgComponent implements OnInit, AfterViewInit {
           this.prevBtn.nativeElement.style.left = space.minX + "px";
           this.nextBtn.nativeElement.style.right = this.canvas.width - space.maxX + "px";
 
-          this.homeBtn.nativeElement.style.top = space.topY / 2 + "px";
+          this.homeBtn.nativeElement.style.top = "10%"; // space.topY / 2 + "px";
           this.homeBtn.nativeElement.style.right = this.canvas.width - space.maxX + "px";
         }
         else if (next.update === "rebuild") {

@@ -248,9 +248,6 @@ export class RosaryBgService {
     for (let i = 0; i < quad.length; i++) {
       let ang1 = Math.atan((quad[i].y - centerY) / (quad[i].x - centerX)) * 180 / Math.PI;
       let ang2 = Math.asin((quad[i].y - centerY) / radius);
-
-      // console.log("angles1: " + ang1);
-      //// console.log("angles2: " + ang2);
     }
 
     const numberOfLines = 54; // Example: 8 lines
@@ -441,7 +438,7 @@ export class RosaryBgService {
       minX, topY, maxX, maxY
     }
   }
-  
+
   getItem( item: string){
      return this.eventArray.find(e => e.gtype === item);
   }
@@ -950,7 +947,9 @@ export interface ObjEvent {
 
 export interface ContentUpdate {
   update: string;
-  contentInfo?: any;
+  contentInfo?: {
+      minX: number, topY: number, maxX: number, maxY: number
+    };
 }
 
 

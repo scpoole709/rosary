@@ -1,18 +1,18 @@
 <div class="home-container">
   <h1>Welcome to the Rosary</h1>
-  <p>Take a deep breath and prepare for your journey.
+  <p [style.fontSize]="textFontSize">Take a deep breath and prepare for your journey.
     Press Start when ever you are ready.
     Just follow the prompts and you'll be fine.
     If you do not have a rosary just imagine if you did.
   </p>
-  <p>
+  <p style="padding: 0;margin: 0;" [style.fontSize]="textFontSize">
     Once you get started, at anytime you may press the home button to come back here.<br>
     You may also click any bead, Mary or the Crucifix to begin or resume to any location on your path.
   </p>
-  <div style="display: flex;">
+
     <button class="start-btn" (click)="router.navigate(['start-prayer'])">Start</button>
     <!-- <button class="start-btn" (click)="router.navigate(['start-prayer'])">{{showResume ? "Resume" : "Start"}}</button> -->
     <!-- <button *ngIf="showResume" class="start-btn" (click)="doReset()">Reset</button> -->
-  </div>
+
 </div>
 
