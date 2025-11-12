@@ -1,31 +1,12 @@
-
 <div class="app-window">
 
-  <div #canvasDiv class="canvas-div" (dblclick)="dblclick($event, menu)" (click)="click($event, menu)">
+  <div #canvasDiv class="canvas-div" (dblclick)="dblclick($event)" (click)="click($event)">
     <canvas #fillcanvas class="fillcanvas" ></canvas>
     <div #contentDiv class="content"><ng-content></ng-content></div>
     <button #prevbtn (click)="prev($event)" [hidden]="!rbSvc.showButtons">&#8656;</button>
     <button #nextbtn (click)="next($event)" [hidden]="!rbSvc.showButtons">&#8658;</button>
-    <a #homebtn class="home-btn" [routerLink]="['/']" routerLinkActive="router-link-active" [hidden]="!rbSvc.showButtons">
-      <i class="fa-solid fa-house"></i>
-    </a>
+    <div #toolbar class="template-area"><ng-container *ngTemplateOutlet="rbSvc.selectedTemplate"></ng-container></div>
+
   </div>
 
 </div>
-
-<ng-template #menu>
-  <!-- <div class="menu">
-    <button (click)="display('start')">Start</button>
-    <button (click)="display('beginning')">Begining</button>
-    <button (click)="display('cross')">Cross</button>
-    <button (click)="display('mary')">Mary</button>
-    <button (click)="display('bead')">Bead</button>
-    <button (click)="display('ovalbead')">Oval Bead</button>
-    <button (click)="display('connect-to-mary')">Connect to Mary</button>
-    <button (click)="display('chain')">Chain</button>
-    <button (click)="display('frame')">Frame</button>
-    <button (click)="display('cancel')">Cancel</button>
-    <button (click)="display('download')">Download</button>
-    <upload-button (fileSelected)="onFileSelected($event)"></upload-button>
-  </div> -->
-</ng-template>

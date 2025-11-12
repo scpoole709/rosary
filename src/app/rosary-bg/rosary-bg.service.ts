@@ -10,6 +10,19 @@ export class RosaryBgService {
 
   contentSpace = new Subject<ContentUpdate>();
 
+  _selectedTemplate;
+  set selectedTemplate(value){
+    this._selectedTemplate = value;
+    let space = this.getSpace();
+    setTimeout( () => {
+      this.contentSpace.next({ update: "resize", contentInfo: space});
+    })
+
+  }
+  get selectedTemplate(){
+    return this._selectedTemplate
+  }
+
   _showButtons = false;
   set showButtons(value: boolean){
     this._showButtons = value;
@@ -58,6 +71,8 @@ export class RosaryBgService {
   }
 
   selectItem(txt: string){
+    const dot = txt.indexOf('.');
+    txt = dot >= 0 ? txt.slice(0, dot) : txt;
     this.unselectAll();
     const item = this.eventArray.find( e => e.key === txt);
     item.selected = true;

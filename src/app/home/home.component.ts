@@ -1,28 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { PrayersService } from '../services/prayers.service';
 import { CommonModule } from '@angular/common';
-import { ContentUpdate, RosaryBgService } from '../rosary-bg/rosary-bg.service';
+import { RosaryBgService } from '../rosary-bg/rosary-bg.service';
+import { InstructionsEN } from '../language/EN/instructions';
+import { PopupTemplateComponent, TemplateOptions } from '../popup-template/popup-template.component';
+import { InstructionsES } from '../language/ES/instructions';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PopupTemplateComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  static timesVisited = 0;
-  get showResume(){
-    return HomeComponent.timesVisited > 1;
-  }
+
+  @ViewChild("homeOptions") homeOptions;
 
   textFontSize = "11px";
+
+  instructions: any;
   constructor( public router: Router,
-               public prayerService: PrayersService,
+               public prayerSvc: PrayersService,
                private rbgSvc: RosaryBgService){
 
-     this.rbgSvc.contentSpace.subscribe({
+
+    this.language();
+    setTimeout( () => {
+       this.rbgSvc.selectedTemplate = this.homeOptions;
+    })
+
+    this.rbgSvc.contentSpace.subscribe({
       next: (next: any) => {
         if (next.update === "resize"){
           this.textFontSize = this.determineFontSize(next.contentInfo);
@@ -35,14 +44,48 @@ export class HomeComponent {
     })
 
     this.textFontSize = this.determineFontSize(this.rbgSvc.getSpace());
-    HomeComponent.timesVisited++;
     rbgSvc.unselectAll();
     rbgSvc.showButtons = false;
   }
 
+
+  options = new TemplateOptions();
+  showTemplate(event: MouseEvent, content)
+  {
+    this.options.templateViewChild = content;
+    //this.adminAction = action;
+    this.options.show("100px", "40%");
+  }
+
+  languageSelected(event){
+    this.language(event.target.value);
+    localStorage.setItem("language", event.target.value);
+    this.options.hide();
+  }
+
+  glossary(txt){
+    const found = this.instructions.glossary.find( g => g.key === txt);
+    return !!found ? found.translation : txt;
+  }
+
+   language(lang?: string){
+    lang = lang || localStorage.getItem("language") || "ES";
+    switch(lang){
+      case 'ES':
+        this.instructions = new InstructionsES();
+        break;
+      case 'EN':
+        this.instructions = new InstructionsEN();
+        break;
+    }
+
+    this.prayerSvc.pages = this.instructions.pages;
+    this.prayerSvc.mysteries = this.instructions.mysteries;
+    this.prayerSvc.instructions = this.instructions;
+  }
+
   doReset(){
-    this.prayerService.doReset();
-    HomeComponent.timesVisited = 1;
+    this.prayerSvc.doReset();
   }
 
   determineFontSize(space){
