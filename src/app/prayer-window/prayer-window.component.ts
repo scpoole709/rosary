@@ -2,17 +2,19 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { PrayersService } from '../services/prayers.service';
 import { Page } from '../utilities/page';
 import { ContentUpdate, RosaryBgService } from '../rosary-bg/rosary-bg.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-prayer-window',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './prayer-window.component.html',
   styleUrl: './prayer-window.component.css'
 })
 export class PrayerWindowComponent implements OnInit, OnDestroy {
 
-  @ViewChild('prayerContainer') container
+  @ViewChild('prayerContainer') container;
+  @ViewChild('prayerOptions') prayerOptions;
 
   currentPage: Page | undefined;
   currentMystery: any | undefined;
@@ -44,7 +46,11 @@ export class PrayerWindowComponent implements OnInit, OnDestroy {
 
   subscribers = [];
   constructor( private prayerSvc: PrayersService,
-               private rbgSvc: RosaryBgService){
+               public rbgSvc: RosaryBgService){
+
+     setTimeout( () => {
+       this.rbgSvc.selectedTemplate = this.prayerOptions;
+    })
     this.subscribers.push(prayerSvc.nav.subscribe( txt => {
       switch(txt){
         case 'next':
@@ -75,10 +81,8 @@ export class PrayerWindowComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.prayerSvc.startFromBeginning();
-    this.currentPage = this.prayerSvc.getCurrentPage();
-    this.currentMystery = this.prayerSvc.getCurrentMystery();
+    this.current();
     this.rbgSvc.showButtons = true;
-    this.rbgSvc.selectItem("cross");
     this.updateState();
   }
 
@@ -88,24 +92,38 @@ export class PrayerWindowComponent implements OnInit, OnDestroy {
     })
   }
 
+  glossary(txt){
+    return this.prayerSvc.glossary(txt);
+  }
+
+  current(){
+    this.updateState();
+    let test = this.prayerSvc.getCurrentPage();
+    if (test) {
+      this.currentPage = test.page;
+      this.currentMystery = test.mystery;
+      this.rbgSvc.selectItem(this.currentPage.key);
+    }
+  }
+
   previous(){
     this.updateState();
     let test = this.prayerSvc.getPrevPage();
     if (test) {
-      this.currentPage = test;
+      this.currentPage = test.page;
+      this.currentMystery = test.mystery;
+      this.rbgSvc.selectItem(this.currentPage.key);
     }
-    this.currentMystery = this.prayerSvc.getCurrentMystery();
-    this.rbgSvc.selectItem(this.currentPage.key);
   }
 
   next(){
     this.updateState();
     let test = this.prayerSvc.getNextPage();
     if (test) {
-      this.currentPage = test;
+      this.currentPage = test.page;
+      this.currentMystery = test.mystery;
+      this.rbgSvc.selectItem(this.currentPage.key);
     }
-    this.currentMystery = this.prayerSvc.getCurrentMystery();
-    this.rbgSvc.selectItem(this.currentPage.key);
   }
 
   updateState(){

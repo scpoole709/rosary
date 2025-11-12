@@ -1,18 +1,36 @@
+<popup-template [templateOptions]="options"></popup-template>
 <div class="home-container">
-  <h1>Welcome to the Rosary</h1>
-  <p [style.fontSize]="textFontSize">Take a deep breath and prepare for your journey.
-    Press Start when ever you are ready.
-    Just follow the prompts and you'll be fine.
-    If you do not have a rosary just imagine if you did.
-  </p>
-  <p style="padding: 0;margin: 0;" [style.fontSize]="textFontSize">
-    Once you get started, at anytime you may press the home button to come back here.<br>
-    You may also click any bead, Mary or the Crucifix to begin or resume to any location on your path.
-  </p>
+  <h1>{{ instructions.homeTitle }}</h1>
+  <p [style.fontSize]="textFontSize">{{ instructions.home1 }}</p>
+  <p style="padding: 0;margin: 0;" [style.fontSize]="textFontSize">{{ instructions.home2 }}</p>
 
-    <button class="start-btn" (click)="router.navigate(['start-prayer'])">Start</button>
-    <!-- <button class="start-btn" (click)="router.navigate(['start-prayer'])">{{showResume ? "Resume" : "Start"}}</button> -->
-    <!-- <button *ngIf="showResume" class="start-btn" (click)="doReset()">Reset</button> -->
-
+  <button class="start-btn" (click)="router.navigate(['start-prayer'])">{{glossary("Start")}}</button>
 </div>
 
+<ng-template #homeOptions>
+  <button class="config" (click)="showTemplate($event, menu)"> &#9881;</button>
+</ng-template>
+
+<ng-template #menu>
+  <div class="menu">
+    <select [value]="instructions.code" (change)="languageSelected($event)">
+      <option value="EN">English</option>
+      <option value="ES">Spanish</option>
+    </select>
+     <button class="none" (click)="options.hide()">Cancel</button>
+  </div>
+  <!-- <div class="menu">
+    <button (click)="display('start')">Start</button>
+    <button (click)="display('beginning')">Begining</button>
+    <button (click)="display('cross')">Cross</button>
+    <button (click)="display('mary')">Mary</button>
+    <button (click)="display('bead')">Bead</button>
+    <button (click)="display('ovalbead')">Oval Bead</button>
+    <button (click)="display('connect-to-mary')">Connect to Mary</button>
+    <button (click)="display('chain')">Chain</button>
+    <button (click)="display('frame')">Frame</button>
+    <button (click)="display('cancel')">Cancel</button>
+    <button (click)="display('download')">Download</button>
+    <upload-button (fileSelected)="onFileSelected($event)"></upload-button>
+  </div> -->
+</ng-template>

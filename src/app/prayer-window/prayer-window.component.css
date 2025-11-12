@@ -52,6 +52,13 @@
   }
 }
 
+.config {
+  font-size: 50px;
+  background: none;
+  border: none;
+  outline: none;
+}
+
 .slow-fade2 {
   width: 30px;
   transition: width 0.5s ease-in-out;

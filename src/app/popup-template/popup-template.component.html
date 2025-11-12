@@ -1,0 +1,9 @@
+<div #popup id="popupz" DlgUtil class="modalpopup" (click)="checkFocus($event)">
+  <div *ngIf="options.title" class="dlg-template-header">
+    <h5>{{options.title}}</h5>
+    <button class="dlg-template-close" aria-label="Close" (click)="hide()">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+  </div> 
+  <ng-container *ngTemplateOutlet="options.templateViewChild"></ng-container> 
+</div>

@@ -1,12 +1,13 @@
 import { PrayersService } from './../services/prayers.service';
-import { Component, HostListener, OnInit, AfterViewInit, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, HostListener, OnInit, AfterViewInit, ViewChild, EventEmitter, Output, TemplateRef } from '@angular/core';
 import { RosaryBgService } from './rosary-bg.service';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'rosary-bg',
   standalone: true,
-  imports: [RouterLink],
+  imports: [CommonModule],
   templateUrl: './rosary-bg.component.html',
   styleUrl: './rosary-bg.component.scss'
 })
@@ -17,7 +18,9 @@ export class RosaryBgComponent implements OnInit, AfterViewInit {
   @ViewChild("contentDiv") contentDiv;
   @ViewChild("prevbtn") prevBtn;
   @ViewChild("nextbtn") nextBtn;
-  @ViewChild("homebtn") homeBtn;
+  @ViewChild("toolbar") toolbar;
+
+  selectedTemplate;
 
   @Output() nav = new EventEmitter<string>();
 
@@ -49,8 +52,9 @@ export class RosaryBgComponent implements OnInit, AfterViewInit {
           this.prevBtn.nativeElement.style.left = space.minX + "px";
           this.nextBtn.nativeElement.style.right = this.canvas.width - space.maxX + "px";
 
-          this.homeBtn.nativeElement.style.top = "10%"; // space.topY / 2 + "px";
-          this.homeBtn.nativeElement.style.right = this.canvas.width - space.maxX + "px";
+          const rect = this.toolbar.nativeElement.getBoundingClientRect();
+          this.toolbar.nativeElement.style.top = space.topY / 2 + "px";
+          this.toolbar.nativeElement.style.right = space.minX + "px";
         }
         else if (next.update === "rebuild") {
           //this.rbSvc.build(this.canvas);
@@ -79,7 +83,7 @@ export class RosaryBgComponent implements OnInit, AfterViewInit {
   }
   saveEvent;
   lastType = "none";
-  click(event: MouseEvent, menu){
+  click(event: MouseEvent){
 
     this.saveEvent = event;
     const selected = this.rbSvc.getClicked(event);
@@ -94,7 +98,7 @@ export class RosaryBgComponent implements OnInit, AfterViewInit {
     }
   }
 
-  dblclick(event: MouseEvent, menu){
+  dblclick(event: MouseEvent){
 
     // const selected = this.rbSvc.getClicked(event);
     // if (!!selected){
