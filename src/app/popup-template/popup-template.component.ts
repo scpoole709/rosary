@@ -59,7 +59,7 @@ export class PopupTemplateComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.hide();
+   // this.hide();
   }
 
   reset() {
@@ -111,7 +111,7 @@ export class PopupTemplateComponent implements OnInit {
         this.title = undefined;
       else
         this.options.title = undefined;
-    }, 1000, el);
+    }, 10, el);
 
   }
 

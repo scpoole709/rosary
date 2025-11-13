@@ -17,6 +17,7 @@ import { InstructionsES } from '../language/ES/instructions';
 export class HomeComponent {
 
   @ViewChild("homeOptions") homeOptions;
+  @ViewChild("menu") menu;
 
   textFontSize = "11px";
 
@@ -27,6 +28,7 @@ export class HomeComponent {
 
 
     this.language();
+
     setTimeout( () => {
        this.rbgSvc.selectedTemplate = this.homeOptions;
     })
@@ -69,7 +71,8 @@ export class HomeComponent {
   }
 
    language(lang?: string){
-    lang = lang || localStorage.getItem("language") || "ES";
+    let test = localStorage.getItem("language");
+    lang = test || lang || "EN";
     switch(lang){
       case 'ES':
         this.instructions = new InstructionsES();
@@ -82,6 +85,12 @@ export class HomeComponent {
     this.prayerSvc.pages = this.instructions.pages;
     this.prayerSvc.mysteries = this.instructions.mysteries;
     this.prayerSvc.instructions = this.instructions;
+    if (!test){
+      setTimeout(() => {
+           this.showTemplate(null, this.menu);
+      })
+      localStorage.setItem("language", "EN");
+    }
   }
 
   doReset(){
@@ -97,6 +106,6 @@ export class HomeComponent {
       }
       fontcount -= 1.81;
     }
-    return "11px";
+    return "8px";
   }
 }

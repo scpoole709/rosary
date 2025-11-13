@@ -1,8 +1,11 @@
 <popup-template [templateOptions]="options"></popup-template>
 <div class="home-container">
+
   <h1>{{ instructions.homeTitle }}</h1>
-  <p [style.fontSize]="textFontSize">{{ instructions.home1 }}</p>
-  <p style="padding: 0;margin: 0;" [style.fontSize]="textFontSize">{{ instructions.home2 }}</p>
+    <div style="overflow: auto;">
+      <p [style.fontSize]="textFontSize">{{ instructions.home1 }}</p>
+      <p style="padding: 0;margin: 0;" [style.fontSize]="textFontSize">{{ instructions.home2 }}</p>
+    </div>
 
   <button class="start-btn" (click)="router.navigate(['start-prayer'])">{{glossary("Start")}}</button>
 </div>
