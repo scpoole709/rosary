@@ -99,14 +99,14 @@ export class HomeComponent {
   }
 
   determineFontSize(space){
-    const area = Math.floor((space.maxX - space.minX) * (space.maxY - space.topY));
-    let fontcount = 50;
-    for ( let i = 1000000; i >= 0; i -= 50000) {
-      if (area > i){
-        return Math.round(fontcount) + "px";
-      }
-      fontcount -= 1.81;
-    }
-    return "8px";
+    // const area = Math.floor((space.maxX - space.minX) * (space.maxY - space.topY));
+    // let fontcount = 50;
+    // for ( let i = 1000000; i >= 0; i -= 50000) {
+    //   if (area > i){
+    //     return Math.round(fontcount) + "px";
+    //   }
+    //   fontcount -= 1.81;
+    // }
+    return "11px";
   }
 }

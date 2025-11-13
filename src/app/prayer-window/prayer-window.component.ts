@@ -33,15 +33,15 @@ export class PrayerWindowComponent implements OnInit, OnDestroy {
   }
 
   determineFontSize(space: ContentUpdate){
-    const area = Math.floor((space.contentInfo.maxX - space.contentInfo.minX) * (space.contentInfo.maxY - space.contentInfo.topY));
-    let fontcount = 50;
-    for ( let i = 1000000; i >= 0; i -= 50000) {
-      if (area > i){
-        return Math.round(fontcount) + "px";
-      }
-      fontcount -= 1.81;
-    }
-    return "8px";
+    // const area = Math.floor((space.contentInfo.maxX - space.contentInfo.minX) * (space.contentInfo.maxY - space.contentInfo.topY));
+    // let fontcount = 50;
+    // for ( let i = 1000000; i >= 0; i -= 50000) {
+    //   if (area > i){
+    //     return Math.round(fontcount) + "px";
+    //   }
+    //   fontcount -= 1.81;
+    // }
+    return "11px";
   }
 
   subscribers = [];
