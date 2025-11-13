@@ -56,6 +56,7 @@ export class HomeComponent {
   {
     this.options.templateViewChild = content;
     //this.adminAction = action;
+    this.options.title = "Configuration";
     this.options.show("100px", "40%");
   }
 
@@ -72,12 +73,12 @@ export class HomeComponent {
 
    language(lang?: string){
     let test = localStorage.getItem("language");
-    lang = test || lang || "EN";
     switch(lang){
       case 'ES':
         this.instructions = new InstructionsES();
         break;
       case 'EN':
+      default:
         this.instructions = new InstructionsEN();
         break;
     }

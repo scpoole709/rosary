@@ -16,11 +16,12 @@
 
 <ng-template #menu>
   <div class="menu">
-    <select [value]="instructions.code" (change)="languageSelected($event)">
+    <label for="language">Select your preferred language</label>
+    <select id="language" [value]="instructions.code" (change)="languageSelected($event)">
       <option value="EN">English</option>
       <option value="ES">Spanish</option>
     </select>
-     <button class="none" (click)="options.hide()">Cancel</button>
+     <!-- <button class="none" (click)="options.hide()">Cancel</button> -->
   </div>
   <!-- <div class="menu">
     <button (click)="display('start')">Start</button>

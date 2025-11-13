@@ -27,8 +27,7 @@
   gap: 5px;
   flex-direction: column;
   justify-content: space-around;
-  padding: 3px;
-  background: lightblue;
+  padding: 13px;
   font-size: 12pt;
 }
 
@@ -45,7 +44,6 @@ select {
   border: solid 1px darkgray;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
   cursor: pointer;
-  background: lightblue;
 }
 
 select:focus {

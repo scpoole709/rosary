@@ -41,7 +41,7 @@ export class PrayerWindowComponent implements OnInit, OnDestroy {
       }
       fontcount -= 1.81;
     }
-    return "11px";
+    return "8px";
   }
 
   subscribers = [];
