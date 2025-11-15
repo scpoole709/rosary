@@ -41,19 +41,19 @@ export class RosaryBgComponent implements OnInit, AfterViewInit {
         if (next.update === "resize"){
           let space = next.contentInfo;
           let buttonRect = this.prevBtn.nativeElement.getBoundingClientRect();
-          this.content.style.top = space.topY + "px";
+          this.content.style.top = space.minY + "px";
           this.content.style.bottom = this.canvas.height - space.maxY + "px";
           this.content.style.left = space.minX + buttonRect.width + "px";
           this.content.style.right = this.canvas.width - space.maxX + buttonRect.width + "px";
-          this.prevBtn.nativeElement.style.top = space.topY + "px";
-          this.nextBtn.nativeElement.style.top = space.topY + "px";
+          this.prevBtn.nativeElement.style.top = space.minY + "px";
+          this.nextBtn.nativeElement.style.top = space.minY + "px";
           this.prevBtn.nativeElement.style.bottom = this.content.style.bottom;
           this.nextBtn.nativeElement.style.bottom = this.content.style.bottom;
           this.prevBtn.nativeElement.style.left = space.minX + "px";
           this.nextBtn.nativeElement.style.right = this.canvas.width - space.maxX + "px";
 
           const rect = this.toolbar.nativeElement.getBoundingClientRect();
-          this.toolbar.nativeElement.style.top = space.topY / 2 + "px";
+          this.toolbar.nativeElement.style.top = space.minY / 2 + "px";
           this.toolbar.nativeElement.style.right = space.minX + "px";
         }
         else if (next.update === "rebuild") {

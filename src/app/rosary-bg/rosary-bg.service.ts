@@ -450,7 +450,7 @@ export class RosaryBgService {
     let topY = Math.max(cross.y + cross.h, mary.y + mary.h);
 
     return {
-      minX, topY, maxX, maxY
+      minX, minY: topY, maxX, maxY
     }
   }
 
@@ -962,9 +962,14 @@ export interface ObjEvent {
 
 export interface ContentUpdate {
   update: string;
-  contentInfo?: {
-      minX: number, topY: number, maxX: number, maxY: number
-    };
+  contentInfo?: ContentSpace;
+}
+
+export interface ContentSpace {
+  minX: number;
+  minY: number;
+  maxX: number;
+  maxY: number;
 }
 
 

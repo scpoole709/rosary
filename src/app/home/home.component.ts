@@ -6,6 +6,7 @@ import { RosaryBgService } from '../rosary-bg/rosary-bg.service';
 import { InstructionsEN } from '../language/EN/instructions';
 import { PopupTemplateComponent, TemplateOptions } from '../popup-template/popup-template.component';
 import { InstructionsES } from '../language/ES/instructions';
+import { ConfigurationService } from '../services/configuration.service';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,8 @@ export class HomeComponent {
   instructions: any;
   constructor( public router: Router,
                public prayerSvc: PrayersService,
-               private rbgSvc: RosaryBgService){
+               private rbgSvc: RosaryBgService,
+               private cfgSvc: ConfigurationService){
 
 
     this.language();
@@ -36,7 +38,7 @@ export class HomeComponent {
     this.rbgSvc.contentSpace.subscribe({
       next: (next: any) => {
         if (next.update === "resize"){
-          this.textFontSize = this.determineFontSize(next.contentInfo);
+          this.textFontSize = this.cfgSvc.determineFontSize(next.contentInfo);
         }
         else if (next.update === "rebuild") {
         }
@@ -45,7 +47,7 @@ export class HomeComponent {
       }
     })
 
-    this.textFontSize = this.determineFontSize(this.rbgSvc.getSpace());
+    //this.textFontSize = this.cfgSvc.determineFontSize(this.rbgSvc.getSpace());
     rbgSvc.unselectAll();
     rbgSvc.showButtons = false;
   }
@@ -96,17 +98,5 @@ export class HomeComponent {
 
   doReset(){
     this.prayerSvc.doReset();
-  }
-
-  determineFontSize(space){
-    // const area = Math.floor((space.maxX - space.minX) * (space.maxY - space.topY));
-    // let fontcount = 50;
-    // for ( let i = 1000000; i >= 0; i -= 50000) {
-    //   if (area > i){
-    //     return Math.round(fontcount) + "px";
-    //   }
-    //   fontcount -= 1.81;
-    // }
-    return "11px";
   }
 }

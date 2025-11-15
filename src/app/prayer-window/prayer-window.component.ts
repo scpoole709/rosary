@@ -3,6 +3,7 @@ import { PrayersService } from '../services/prayers.service';
 import { Page } from '../utilities/page';
 import { ContentUpdate, RosaryBgService } from '../rosary-bg/rosary-bg.service';
 import { RouterLink } from '@angular/router';
+import { ConfigurationService } from '../services/configuration.service';
 
 @Component({
   selector: 'app-prayer-window',
@@ -32,21 +33,10 @@ export class PrayerWindowComponent implements OnInit, OnDestroy {
     return window.outerWidth;
   }
 
-  determineFontSize(space: ContentUpdate){
-    // const area = Math.floor((space.contentInfo.maxX - space.contentInfo.minX) * (space.contentInfo.maxY - space.contentInfo.topY));
-    // let fontcount = 50;
-    // for ( let i = 1000000; i >= 0; i -= 50000) {
-    //   if (area > i){
-    //     return Math.round(fontcount) + "px";
-    //   }
-    //   fontcount -= 1.81;
-    // }
-    return "11px";
-  }
-
   subscribers = [];
   constructor( private prayerSvc: PrayersService,
-               public rbgSvc: RosaryBgService){
+               public rbgSvc: RosaryBgService,
+               private cfgSvc: ConfigurationService){
 
      setTimeout( () => {
        this.rbgSvc.selectedTemplate = this.prayerOptions;
@@ -69,7 +59,7 @@ export class PrayerWindowComponent implements OnInit, OnDestroy {
      this.rbgSvc.contentSpace.subscribe({
       next: (next: any) => {
         if (next.update === "resize"){
-          this.fontSize = this.determineFontSize(next);
+          this.fontSize = this.cfgSvc.determineFontSize(next.contentInfo);
         }
         else if (next.update === "rebuild") {
         }
