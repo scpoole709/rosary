@@ -19,9 +19,9 @@
     margin-top: 1em;
   }
 
-  p, h3, h4{
+  p, h1, h2, h3, h4{
     padding: 0px;
-    margin: 0;
+    margin: 0px;
   }
 }
 

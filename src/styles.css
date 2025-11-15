@@ -78,16 +78,6 @@ body {
   font-size: 14pt;
 }
 
-/* .home-btn {
-  position: absolute;
-  top: -30px;
-  right: 100px;
-  width: fit-content;
-  height: fit-content;
-  font-size: 14pt;
-  border: solid 4px rgba(0,0,0,0);
-  border-radius: 10px; */
-
 /* width */
   ::-webkit-scrollbar {
     width: 8px;
