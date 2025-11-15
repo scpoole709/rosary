@@ -1,16 +1,24 @@
+import { Instructions } from './../utilities/instructions.interface';
 import { Injectable } from '@angular/core';
 import { Page } from '../utilities/page';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { ConfigurationService } from './configuration.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PrayersService {
 
-  instructions;
-  pages: Page[] =  [];
-  mysteries = [];
+  get instructions(){
+    return this.cfgSvc.instructions;
+  };
+  get pages(){
+    return this.cfgSvc.instructions.pages;
+  }
+  get mysteries(){
+    return this.cfgSvc.instructions.mysteries;
+  }
 
   currentPrayerIndex = 0;
   reset = false;
@@ -24,7 +32,8 @@ export class PrayersService {
     this.nav.next("prev");
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private cfgSvc: ConfigurationService ) { }
 
   glossary(txt){
     const found = this.instructions.glossary.find( g => g.key === txt);
