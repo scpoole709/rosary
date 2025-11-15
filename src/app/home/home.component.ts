@@ -49,7 +49,6 @@ export class HomeComponent {
     rbgSvc.showButtons = false;
   }
 
-
   options = new TemplateOptions();
   showTemplate(event: MouseEvent, content)
   {
