@@ -7,7 +7,7 @@
       <h3>{{currentPage?.instruction}}</h3>
     }
     @if (currentMystery?.Title) {
-      <h3 class="paragraph">{{currentMystery?.Title}}</h3>
+      <h3 class="paragraph" [innerHTML]="currentMystery.Title"></h3>
     }
     @if (currentMystery?.Meditation != undefined) {
       <h3 style="margin-top: 1em;">{{glossary('Meditate') + ': ' + currentMystery.Meditation}}</h3>

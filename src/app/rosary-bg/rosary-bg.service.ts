@@ -55,19 +55,19 @@ export class RosaryBgService {
 
   drawEvents(canvas: HTMLCanvasElement, locations){
     this.count = 0;
-    this.drawLine( canvas, locations);
-    this.drawBeadsFromList( canvas, locations);
-    locations.forEach(each => {
-      if (each.gtype === "cross"){
-        this.drawCrucifix(canvas, each);
-      }
-      else if (each.gtype === "mary"){
-        this.drawMary(canvas, each);
-      }
-      else if (each.gtype === "chain-only"){
-        this.drawChainEnd(canvas, each);
-      }
-    });
+      this.drawLine( canvas, locations);
+      this.drawBeadsFromList( canvas, locations);
+      locations.forEach(each => {
+        if (each.gtype === "cross"){
+          this.drawCrucifix(canvas, each);
+        }
+        else if (each.gtype === "mary"){
+          this.drawMary(canvas, each);
+        }
+        else if (each.gtype === "chain-only"){
+          this.drawChainEnd(canvas, each);
+        }
+      });
   }
 
   selectItem(txt: string){

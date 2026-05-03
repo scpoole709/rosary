@@ -17,7 +17,7 @@ export class PrayersService {
     return this.cfgSvc.instructions.pages;
   }
   get mysteries(){
-    return this.cfgSvc.instructions.mysteries;
+    return this.cfgSvc.getMysteries();
   }
 
   currentPrayerIndex = 0;

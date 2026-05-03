@@ -23,6 +23,10 @@ export class HomeComponent {
   get instructions(){
     return this.cfgSvc.instructions;
   }
+
+  get mysterySelection(){
+    return this.cfgSvc.instructions.mysteryName;
+  }
   constructor( public router: Router,
                public prayerSvc: PrayersService,
                private rbgSvc: RosaryBgService,
@@ -60,6 +64,11 @@ export class HomeComponent {
 
   languageSelected(event){
     this.cfgSvc.languageCode = event.target.value;
+    this.options.hide();
+  }
+
+   mysterySelected(event){
+    this.cfgSvc.instructions.mysteryName = event.target.value;
     this.options.hide();
   }
 

@@ -1,7 +1,7 @@
 {
   "Mysteries": [
     {
-      "Title": "The First Joyful Mystery – Mary is Chosen Mother of GOD.",
+      "Title": "The First Joyful Mystery<br><br><i>The Annunciation</i>",
       "SubTitle": "Obedience",
       "Meditation": [
         {"text": "Through the disobedience of Adam sin enters the world.", "verse": "Rom. 5:12"},
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "Title": "The Second Joyful Mystery – Mary Visits Elizabeth.",
+      "Title": "The Second Joyful Mystery<br><br><i>The Visitation</i>",
       "SubTitle": "Love Others",
       "Meditation": [
         {"text": "Mary visits her elderly cousin Elizabeth.", "verse": "Lk. 1:40"},
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "Title": "The Third Joyful Mystery – JESUS is Born",
+      "Title": "The Third Joyful Mystery<br><br><i>The Nativity of Our Lord</i>",
       "SubTitle": "Poverty",
       "Meditation": [
         {"text": "In Bethlehem will be born He Who is to rule my people.", "verse": "Micah 5:2"},
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "Title": "The Fourth Joyful Mystery – JESUS is Offered to GOD.",
+      "Title": "The Fourth Joyful Mystery<br><br><i>The Presentation</i>",
       "SubTitle": "Humility",
       "Meditation": [
         {"text": "When the Child Jesus is eight days old, He is circumcised.","verse": "Lk. 2:21"},
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "Title": "The Fifth Joyful Mystery – JESUS is Found in the Temple.",
+      "Title": "The Fifth Joyful Mystery<br><br><i>Finding Jesus in the Temple</i>",
       "SubTitle": "Joy in Finding Jesus",
       "Meditation": [
         {"text": "Jesus is twelve years old, and goes to Jerusalem with Mary and Joseph.","verse": "Lk. 2:42"},
