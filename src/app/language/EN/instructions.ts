@@ -15,7 +15,7 @@ import FinalPrayer from './FinalPrayer.json';
 export class InstructionsEN {
 
   code = "EN";
-  mysteryName = this.getMysteryByDay(new Date().getDay() + 1);
+  mysteryName = this.getMysteryByDay(new Date().getDay());
 
   getByIndex( index: number){
     const page = this.pages[index];
@@ -51,7 +51,7 @@ export class InstructionsEN {
         return "Sorrowful";
       case 6:
         return "Joyful";
-      case 7:
+      case 0:
         return "Glorious";
       default:
         return "Joyful";
