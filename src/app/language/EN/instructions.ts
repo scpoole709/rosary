@@ -1,6 +1,9 @@
 import { Page } from '../../utilities/page';
 import Beginning from './Beginning.json';
-import Mysteries from './Mysteries.json';
+import Mysteries1 from './JoyfulMysteries.json';
+import Mysteries2 from './SorrowfulMysteries.json';
+import Mysteries3 from './GloriousMysteries.json';
+import Mysteries4 from './LuminousMysteries.json';
 import ApostlesCreed from './ApostlesCreed.json';
 import GloryBe from './GloryBe.json';
 import HailMary from './HailMary.json';
@@ -12,13 +15,54 @@ import FinalPrayer from './FinalPrayer.json';
 export class InstructionsEN {
 
   code = "EN";
+  mysteryName = this.getMysteryByDay(new Date().getDay() + 1);
 
   getByIndex( index: number){
     const page = this.pages[index];
-    return {page: page, mystery: page.decadeIndex ? Mysteries.Mysteries[page.decadeIndex] : undefined}
+    return {page: page, mystery: page.decadeIndex ? this.mysteries.Mysteries[page.decadeIndex] : undefined}
   }
 
-  mysteries = Mysteries.Mysteries;
+ getMysteryByName(name: string): any {
+    switch (name){
+      case "Joyful":
+        return Mysteries1;
+      case "Sorrowful":
+        return Mysteries2;
+      case "Glorious":
+        return Mysteries3;
+      case "Luminous":
+        return Mysteries4;
+      default:
+        return Mysteries1;
+    }
+  }
+
+  getMysteryByDay(dayIndex: number): any {
+    switch (dayIndex){
+      case 1:
+        return "Joyful";
+      case 2:
+        return "Sorrowful";
+      case 3:
+        return "Glorious";
+      case 4:
+        return "Luminous";
+      case 5:
+        return "Sorrowful";
+      case 6:
+        return "Joyful";
+      case 7:
+        return "Glorious";
+      default:
+        return "Joyful";
+    }
+  }
+
+  _mysteries = this.getMysteryByName(this.getMysteryByDay(new Date().getDay()));
+
+  get mysteries() {
+    return this.getMysteryByName(this.mysteryName);
+  }
 
   pages: Page[] =  [
     { instruction: "Holding the Crucifix", file: Beginning, key: "cross.1"},
@@ -29,7 +73,7 @@ export class InstructionsEN {
     { instruction: "Hold fourth bead", file: HailMary, key: "bead-3"},
     { instruction: "Hold fifth bead", file: GloryBe, key: "oval-2"},
     { instruction: "", file: OhMyJesus, key: "mary.1"},
-    { instruction: "Announce the Mystery", decadeIndex: 0, key: "mary.2"},
+    { instruction: "", decadeIndex: 0, key: "mary.2"},
     { instruction: "", file: OurFather, key: "mary.3"},
     { file: HailMary, decadeIndex: 0, mysteryIndex: 0, key: "bead-1-0"},
     { file: HailMary, decadeIndex: 0, mysteryIndex: 1, key: "bead-1-1"},
@@ -43,7 +87,7 @@ export class InstructionsEN {
     { file: HailMary, decadeIndex: 0, mysteryIndex: 9, key: "bead-1-9"},
     { instruction: "", file: GloryBe, key: "decade-1"},
     { instruction: "", file: OhMyJesus, key: "decade-1"},
-    { instruction: "Announce the Mystery", decadeIndex: 1, key: "decade-1"},
+    { instruction: "", decadeIndex: 1, key: "decade-1"},
     { instruction: "", file: OurFather, key: "decade-1"},
     { file: HailMary, decadeIndex: 1, mysteryIndex: 0, key: "bead-2-0"},
     { file: HailMary, decadeIndex: 1, mysteryIndex: 1, key: "bead-2-1"},
@@ -57,7 +101,7 @@ export class InstructionsEN {
     { file: HailMary, decadeIndex: 1, mysteryIndex: 9, key: "bead-2-9"},
     { instruction: "", file: GloryBe, key: "decade-2"},
     { instruction: "", file: OhMyJesus, key: "decade-2"},
-    { instruction: "Announce the Mystery", decadeIndex: 2, key: "decade-2"},
+    { instruction: "", decadeIndex: 2, key: "decade-2"},
     { instruction: "", file: OurFather, key: "decade-2"},
     { file: HailMary, decadeIndex: 2, mysteryIndex: 0, key: "bead-3-0"},
     { file: HailMary, decadeIndex: 2, mysteryIndex: 1, key: "bead-3-1"},
@@ -71,7 +115,7 @@ export class InstructionsEN {
     { file: HailMary, decadeIndex: 2, mysteryIndex: 9, key: "bead-3-9"},
     { instruction: "", file: GloryBe, key: "decade-3"},
     { instruction: "", file: OhMyJesus, key: "decade-3"},
-    { instruction: "Announce the Mystery", decadeIndex: 3, key: "decade-3"},
+    { instruction: "", decadeIndex: 3, key: "decade-3"},
     { instruction: "", file: OurFather, key: "decade-3"},
     { file: HailMary, decadeIndex: 3, mysteryIndex: 0, key: "bead-4-0"},
     { file: HailMary, decadeIndex: 3, mysteryIndex: 1, key: "bead-4-1"},
@@ -85,7 +129,7 @@ export class InstructionsEN {
     { file: HailMary, decadeIndex: 3, mysteryIndex: 9, key: "bead-4-9"},
     { instruction: "", file: GloryBe, key: "decade-4"},
     { instruction: "", file: OhMyJesus, key: "decade-4"},
-    { instruction: "Announce the Mystery", decadeIndex: 4, key: "decade-4"},
+    { instruction: "", decadeIndex: 4, key: "decade-4"},
     { instruction: "", file: OurFather , key: "decade-4"},
     { file: HailMary, decadeIndex: 4, mysteryIndex: 0, key: "bead-5-0"},
     { file: HailMary, decadeIndex: 4, mysteryIndex: 1, key: "bead-5-1"},

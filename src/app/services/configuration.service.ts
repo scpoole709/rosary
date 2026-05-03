@@ -13,6 +13,10 @@ export class ConfigurationService {
     this.languageCode = this.code ? this.code : "EN";
   }
 
+  getMysteries(){
+    return this.instructions.getMysteryByName(this.instructions.mysteryName).Mysteries;
+  }
+
   code = "EN";
   instructions = new InstructionsEN();
 

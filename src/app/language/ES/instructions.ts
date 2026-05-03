@@ -1,6 +1,9 @@
 import { Page } from '../../utilities/page';
 import Beginning from './Beginning.json';
-import Mysteries from './Mysteries.json';
+import Mysteries1 from './JoyfulMysteries.json';
+import Mysteries2 from './JoyfulMysteries.json';
+import Mysteries3 from './GloriousMysteries.json';
+import Mysteries4 from './JoyfulMysteries.json';
 import ApostlesCreed from './ApostlesCreed.json';
 import GloryBe from './GloryBe.json';
 import HailMary from './HailMary.json';
@@ -13,13 +16,54 @@ import { Instructions } from '../../utilities/instructions.interface';
 export class InstructionsES implements Instructions {
 
   code = "ES";
+  mysteryName = this.getMysteryByDay(new Date().getDay() + 1);
 
   getByIndex( index: number){
     const page = this.pages[index];
-    return {page: page, mystery: page.decadeIndex ? Mysteries.Mysteries[page.decadeIndex] : undefined}
+    return {page: page, mystery: page.decadeIndex ? this.mysteries.Mysteries[page.decadeIndex] : undefined}
   }
 
-  mysteries = Mysteries.Mysteries;
+  getMysteryByName(name: string): any {
+    switch (name){
+      case "Joyful":
+        return Mysteries1;
+      case "Sorrowful":
+        return Mysteries2;
+      case "Glorious":
+        return Mysteries3;
+      case "Luminous":
+        return Mysteries4;
+      default:
+        return Mysteries1;
+    }
+  }
+
+  getMysteryByDay(dayIndex: number): any {
+    switch (dayIndex){
+      case 1:
+        return "Joyful";
+      case 2:
+        return "Sorrowful";
+      case 3:
+        return "Glorious";
+      case 4:
+        return "Luminous";
+      case 5:
+        return "Sorrowful";
+      case 6:
+        return "Joyful";
+      case 7:
+        return "Glorious";
+      default:
+        return "Joyful";
+    }
+  }
+
+  _mysteries = this.getMysteryByName(this.getMysteryByDay(new Date().getDay()));
+
+  get mysteries() {
+    return this.getMysteryByName(this.mysteryName);
+  }
 
   pages: Page[] =  [
     { instruction: "Sosteniendo el crucifijo", file: Beginning, key: "cross.1"},
@@ -29,7 +73,7 @@ export class InstructionsES implements Instructions {
     { instruction: "Mantenga la tercera cuenta", file: HailMary, key: "bead-2"},
     { instruction: "Mantenga la cuarta cuenta", file: HailMary, key: "bead-3"},
     { instruction: "Mantenga la quinta cuenta", file: GloryBe, key: "oval-2"},
-    { instruction: "Anuncia el misterio", decadeIndex: 0, key: "mary.1"},
+    { instruction: "", decadeIndex: 0, key: "mary.1"},
     { instruction: "", file: OurFather, key: "mary.2"},
     { file: HailMary, decadeIndex: 0, mysteryIndex: 0, key: "bead-1-0"},
     { file: HailMary, decadeIndex: 0, mysteryIndex: 1, key: "bead-1-1"},
@@ -43,7 +87,7 @@ export class InstructionsES implements Instructions {
     { file: HailMary, decadeIndex: 0, mysteryIndex: 9, key: "bead-1-9"},
     { instruction: "", file: GloryBe, key: "decade-1"},
     { instruction: "", file: OhMyJesus, key: "decade-1"},
-    { instruction: "Anuncia el misterio", decadeIndex: 1, key: "decade-1"},
+    { instruction: "", decadeIndex: 1, key: "decade-1"},
     { instruction: "", file: OurFather, key: "decade-1"},
     { file: HailMary, decadeIndex: 1, mysteryIndex: 0, key: "bead-2-0"},
     { file: HailMary, decadeIndex: 1, mysteryIndex: 1, key: "bead-2-1"},
@@ -56,7 +100,7 @@ export class InstructionsES implements Instructions {
     { file: HailMary, decadeIndex: 1, mysteryIndex: 8, key: "bead-2-8"},
     { file: HailMary, decadeIndex: 1, mysteryIndex: 9, key: "bead-2-9"},
     { instruction: "", file: GloryBe, key: "decade-2"},
-    { instruction: "Anuncia el misterio", decadeIndex: 2, key: "decade-2"},
+    { instruction: "", decadeIndex: 2, key: "decade-2"},
     { instruction: "", file: OurFather, key: "decade-2"},
     { file: HailMary, decadeIndex: 2, mysteryIndex: 0, key: "bead-3-0"},
     { file: HailMary, decadeIndex: 2, mysteryIndex: 1, key: "bead-3-1"},
@@ -70,7 +114,7 @@ export class InstructionsES implements Instructions {
     { file: HailMary, decadeIndex: 2, mysteryIndex: 9, key: "bead-3-9"},
     { instruction: "", file: GloryBe, key: "decade-3"},
     { instruction: "", file: OhMyJesus, key: "decade-3"},
-    { instruction: "Anuncia el misterio", decadeIndex: 3, key: "decade-3"},
+    { instruction: "", decadeIndex: 3, key: "decade-3"},
     { instruction: "", file: OurFather, key: "decade-3"},
     { file: HailMary, decadeIndex: 3, mysteryIndex: 0, key: "bead-4-0"},
     { file: HailMary, decadeIndex: 3, mysteryIndex: 1, key: "bead-4-1"},
@@ -83,7 +127,7 @@ export class InstructionsES implements Instructions {
     { file: HailMary, decadeIndex: 3, mysteryIndex: 8, key: "bead-4-8"},
     { file: HailMary, decadeIndex: 3, mysteryIndex: 9, key: "bead-4-9"},
     { instruction: "", file: GloryBe, key: "decade-4"},
-    { instruction: "Anuncia el misterio", decadeIndex: 4, key: "decade-4"},
+    { instruction: "", decadeIndex: 4, key: "decade-4"},
     { instruction: "", file: OurFather , key: "decade-4"},
     { file: HailMary, decadeIndex: 4, mysteryIndex: 0, key: "bead-5-0"},
     { file: HailMary, decadeIndex: 4, mysteryIndex: 1, key: "bead-5-1"},

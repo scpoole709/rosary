@@ -1,7 +1,7 @@
 {
   "Mysteries": [
     {
-      "Title": "El primer misterio gozoso: María es elegida Madre de Dios.",
+      "Title": "El primer misterio gozoso<br><br><i>María es elegida Madre de Dios.</i>",
       "SubTitle": "Obediencia",
       "Meditation": [
         {"text": "Por la desobediencia de Adán entra el pecado en el mundo.", "verse": "Rom. 5:12"},
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "Title": "El segundo misterio gozoso: María visita a Isabel.",
+      "Title": "El segundo misterio gozoso<br><br><i>María visita a Isabel.</i>",
       "SubTitle": "Amar a los demás",
       "Meditation": [
         {"text": "María visita a su anciana prima Elizabeth.", "verse": "Lk. 1:40"},
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "Title": "El tercer misterio gozoso: el nacimiento de Jesús",
+      "Title": "El tercer misterio gozoso<br><br><i>el nacimiento de Jesús</i>",
       "SubTitle": "Pobreza",
       "Meditation": [
         {"text": "En Belén nacerá el que ha de gobernar a mi pueblo.", "verse": "Micah 5:2"},
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "Title": "TEl cuarto misterio gozoso: JESÚS es ofrecido a DIOS.",
+      "Title": "TEl cuarto misterio gozoso<br><br><i>JESÚS es ofrecido a DIOS.</i>",
       "SubTitle": "Humildad",
       "Meditation": [
         {"text": "Cuando el Niño Jesús tiene ocho días, es circuncidado.","verse": "Lk. 2:21"},
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "Title": "El quinto misterio gozoso: Jesús es hallado en el templo.",
+      "Title": "El quinto misterio gozoso<br><br><i>Jesús es hallado en el templo.</i>",
       "SubTitle": "Alegría al encontrar a Jesús",
       "Meditation": [
         {"text": "Jesús tiene doce años y va a Jerusalén con María y José.","verse": "Lk. 2:42"},

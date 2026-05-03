@@ -15,7 +15,14 @@
 
 <ng-template #menu>
   <div class="menu">
-    <label for="language">Select your preferred language</label>
+    <label for="mystery">Select your mystery</label>
+    <select id="mystery" [value]="instructions.mysteryName" (change)="mysterySelected($event)">
+      <option value="Joyful">The Joyful Mysteries</option>
+      <option value="Sorrowful">The Sorrowful Mysteries</option>
+      <option value="Glorious">The Glorious Mysteries</option>
+      <option value="Luminous">The Luminous Mysteries</option>
+    </select>
+     <label for="language">Select your preferred language</label>
     <select id="language" [value]="instructions.code" (change)="languageSelected($event)">
       <option value="EN">English</option>
       <option value="ES">Spanish</option>

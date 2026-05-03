@@ -1,0 +1,84 @@
+{
+  "Mysteries": [
+    {
+      "Title": "El Primer Misterio Luminoso<br><br></i>El Bautismo del Señor</i>",
+      "SubTitle": "Obediencia",
+      "Meditation": [
+        {"text": "Una voz clama en el desierto.", "verse": "Mc. 1:3"},
+        {"text": "Juan el Bautista predica la conversión.", "verse": "Mat. 3:1-2"},
+        {"text": "Juan proclama que viene uno «a quien no soy digno de desatar la correa de sus sandalias».", "verse": "Mc. 1:7"},
+        {"text": "Jesús se acerca a Juan para ser bautizado.", "verse": "Mat. 3:13"},
+        {"text": "Juan protesta que Jesús debería ser quien lo bautice.", "verse": "Mat. 3:14"},
+        {"text": "Jesús responde que debe ser así por ahora.", "verse": "Mat. 3:15"},
+        {"text": "Se abren los cielos y el Espíritu desciende.", "verse": "Mat. 3:16"},
+        {"text": "Una voz del cielo dice: «Este es mi Hijo amado, en quien me complazco.»", "verse": "Mat. 3:17"},
+        {"text": "Hay un solo Señor, una sola fe, un solo bautismo.", "verse": "Ef. 4:5"},
+        {"text": "Fuimos bautizados en su muerte para resucitar a una vida nueva en Él.", "verse": "Rom. 6:4"}
+      ]
+    },
+    {
+      "Title": "El Segundo Misterio Luminoso<br><br></i>Las Bodas de Caná</i>",
+      "SubTitle": "Amar a los demás",
+      "Meditation": [
+        {"text": "Hubo una boda en Caná de Galilea.", "verse": "Jn. 2:1"},
+        {"text": "Se acaba el vino. María intercede.", "verse": "Jn. 2:3"},
+        {"text": "Jesús responde que aún no ha llegado su hora.", "verse": "Jn. 2:4"},
+        {"text": "María dice a los sirvientes que hagan lo que Él les diga.", "verse": "Jn. 2:5"},
+        {"text": "Jesús pide que se llenen de agua las tinajas.", "verse": "Jn. 2:6"},
+        {"text": "El mayordomo se asombra de que el mejor vino se haya servido al final.", "verse": "Jn. 2:10"},
+        {"text": "Este fue el primero de sus signos.", "verse": "Jn. 2:11"},
+        {"text": "«Te desposaré conmigo en fidelidad.»", "verse": "Os. 2:20"},
+        {"text": "«Maridos, amen a sus esposas, como Cristo amó a la Iglesia.»", "verse": "Ef. 5:25"},
+        {"text": "«Bienaventurados los invitados al banquete de bodas del Cordero.»", "verse": "Apoc. 19:9"}
+      ]
+    },
+    {
+      "Title": "El Tercer Misterio Luminoso<br><br></i>El anuncio del Reino de Dios y la llamada a la conversión</i>",
+      "SubTitle": "Pobreza",
+      "Meditation": [
+        {"text": "Jesús proclama: «El Reino de Dios está cerca; conviértanse y crean en el Evangelio.»", "verse": "Mc. 1:15"},
+        {"text": "Jesús predica el Reino en Galilea.", "verse": "Mat. 4:23"},
+        {"text": "Jesús enseña las Bienaventuranzas a la multitud.", "verse": "Mat. 5:1-12"},
+        {"text": "Jesús manda a sus seguidores ser sal de la tierra y luz del mundo.", "verse": "Mat. 5:13-16"},
+        {"text": "No basta decir «Señor, Señor», sino hacer la voluntad del Padre.", "verse": "Mat. 7:21-23"},
+        {"text": "Jesús envía a sus discípulos a predicar: «El Reino de los cielos está cerca.»", "verse": "Mat. 10:7"},
+        {"text": "«También a otras ciudades debo anunciar el Reino de Dios, porque para eso he sido enviado.»", "verse": "Lc. 4:43"},
+        {"text": "Si no recibimos el Reino de Dios como un niño, no entraremos en él.", "verse": "Mc. 10:15"},
+        {"text": "Jesús envía a los discípulos a predicar el Reino y sanar a los enfermos.", "verse": "Lc. 9:2"},
+        {"text": "Los apóstoles predican a Cristo resucitado.", "verse": "Hech. 2:32"}
+      ]
+    },
+    {
+      "Title": "El Cuarto Misterio Luminoso<br><br></i>La Transfiguración</i>",
+      "SubTitle": "Humildad",
+      "Meditation": [
+        {"text": "Jesús lleva a Pedro, Santiago y Juan a un monte alto, aparte.", "verse": "Mat. 17:1"},
+        {"text": "Se transfigura ante ellos; su rostro brilla como el sol y sus vestiduras como la luz.", "verse": "Mat. 17:2"},
+        {"text": "De pronto aparecen Moisés y Elías.", "verse": "Mc. 9:4"},
+        {"text": "Pedro propone hacer tres tiendas.", "verse": "Mat. 17:4"},
+        {"text": "Mientras Pedro habla, una nube los cubre y los apóstoles sienten temor.", "verse": "Lc. 9:34"},
+        {"text": "Una voz dice: «Este es mi Hijo amado, en quien me complazco. Escúchenlo.»", "verse": "Mat. 17:5"},
+        {"text": "Los discípulos quedan llenos de miedo.", "verse": "Mat. 17:6"},
+        {"text": "Jesús les dice que se levanten y no tengan miedo.", "verse": "Mat. 17:7"},
+        {"text": "Así como participamos en los sufrimientos de Cristo, también participaremos en su gloria.", "verse": "1 Pe. 4:13-16"},
+        {"text": "Los discípulos se alegran de ser considerados dignos de sufrir por su nombre.", "verse": "Hech. 5:41"}
+      ]
+    },
+    {
+      "Title": "El Quinto Misterio Luminoso<br><br></i>La Institución de la Eucaristía</i>",
+      "SubTitle": "Alegría al encontrar a Jesús",
+      "Meditation": [
+        {"text": "Se acercaba la fiesta de los panes sin levadura, llamada Pascua.", "verse": "Lc. 22:1"},
+        {"text": "Jesús envía a sus discípulos a preparar la Pascua.", "verse": "Mat. 26:17-18"},
+        {"text": "Al atardecer, Jesús se sienta a la mesa con ellos.", "verse": "Mat. 26:19-20"},
+        {"text": "Jesús dice que no volverá a celebrar la Pascua hasta que se cumpla todo.", "verse": "Lc. 22:16"},
+        {"text": "El Señor lava los pies de sus discípulos.", "verse": "Jn. 13:5-6"},
+        {"text": "Jesús toma el pan, lo parte y lo da diciendo: «Esto es mi Cuerpo.»", "verse": "Lc. 22:19"},
+        {"text": "Del mismo modo toma el cáliz y dice: «Esta es mi Sangre.»", "verse": "Lc. 22:20"},
+        {"text": "«En verdad les digo: si no comen la carne del Hijo del Hombre y no beben su sangre, no tendrán vida en ustedes.»", "verse": "Jn. 6:53"},
+        {"text": "El cáliz y el pan son comunión con la sangre y el cuerpo del Señor.", "verse": "1 Cor. 10:16"},
+        {"text": "Cada vez que comemos este pan y bebemos este cáliz, proclamamos su muerte hasta que Él venga.", "verse": "1 Cor. 11:26"}
+      ]
+    }
+  ]
+}
