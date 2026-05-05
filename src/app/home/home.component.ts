@@ -58,7 +58,7 @@ export class HomeComponent {
   {
     this.options.templateViewChild = content;
     //this.adminAction = action;
-    this.options.title = "Configuration";
+    this.options.title = "Configuration v1.0";
     this.options.show("40%", "40%");
   }
 
