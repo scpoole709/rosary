@@ -1,9 +1,9 @@
 import { Page } from '../../utilities/page';
 import Beginning from './Beginning.json';
 import Mysteries1 from './JoyfulMysteries.json';
-import Mysteries2 from './JoyfulMysteries.json';
+import Mysteries2 from './SorrowfulMysteries.json';
 import Mysteries3 from './GloriousMysteries.json';
-import Mysteries4 from './JoyfulMysteries.json';
+import Mysteries4 from './LuminousMysteries.json';
 import ApostlesCreed from './ApostlesCreed.json';
 import GloryBe from './GloryBe.json';
 import HailMary from './HailMary.json';
