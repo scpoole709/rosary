@@ -3,11 +3,12 @@ import { Component, HostListener, OnInit, AfterViewInit, ViewChild, EventEmitter
 import { RosaryBgService } from './rosary-bg.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { PulseDirective } from '../pulse.directive';
 
 @Component({
   selector: 'rosary-bg',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PulseDirective],
   templateUrl: './rosary-bg.component.html',
   styleUrl: './rosary-bg.component.scss'
 })

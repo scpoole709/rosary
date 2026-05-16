@@ -25,24 +25,7 @@ export class AppComponent implements OnInit {
   counterState: CounterState = {current: 0, low:0, high: 25, direction: true};
 
   ngOnInit(): void {
-    this.setScale();
-    window.onresize = () => {
-      this.setScale();
     }
-
-  setInterval( () => {
-    const div = document.getElementById('radiant-div');
-    if (!!div){
-      let color = "#" + applyChange(this.counterState);
-
-      div.style.backgroundImage = `radial-gradient(white ${this.counterState.current}%, yellow, green)`;
-    }
-  }, 100);
-  }
-
-  setScale(){
-    // this.scale = (window.innerWidth / 758) + " " + (window.innerHeight / 501);
-  }
 
   nav(event){
     switch (event){

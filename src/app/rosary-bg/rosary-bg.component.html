@@ -1,6 +1,6 @@
 <div class="app-window">
 
-  <div #canvasDiv class="canvas-div" (dblclick)="dblclick($event)" (click)="click($event)">
+  <div pulse #canvasDiv class="canvas-div" (dblclick)="dblclick($event)" (click)="click($event)">
     <canvas #fillcanvas class="fillcanvas" ></canvas>
     <div #contentDiv class="content"><ng-content></ng-content></div>
     <button #prevbtn (click)="prev($event)" [hidden]="!rbSvc.showButtons">&#8656;</button>
